@@ -8,11 +8,22 @@ Ce fichier s’applique à **toute personne, assistant IA ou agent de code** qui
 2. Lire **intégralement `HANDOFF.md`**.
 3. Lire `docs/DESIGN_REFERENCE.md` avant toute modification visuelle.
 4. Lire `docs/IDEAS.md` avant de proposer ou d’implémenter une fonctionnalité déjà envisagée.
-5. Lire `content/SITE_CONTENT.md` avant de modifier les textes, prix ou promesses commerciales.
+5. Lire `IDEAS_INBOX.md` pour vérifier les nouvelles idées déposées par Stéphanie, Gwen ou leurs assistants.
+6. Lire `content/SITE_CONTENT.md` avant de modifier les textes, prix ou promesses commerciales.
+
+## Boîte à idées partagée
+
+`IDEAS_INBOX.md` est la zone d’entrée simple des nouvelles propositions.
+
+- Une idée ajoutée dans l’inbox n’est **pas automatiquement validée**.
+- Ne jamais effacer les idées précédentes pour en ajouter une nouvelle.
+- Lorsqu’une idée est retenue, la transférer dans `docs/IDEAS.md` et, si elle modifie une décision ou l’état du projet, mettre également à jour `HANDOFF.md`.
+- Lorsqu’une idée est rejetée, conserver une trace et une raison courte.
+- Une IA chargée uniquement de déposer une idée peut se limiter à modifier `IDEAS_INBOX.md`. Une IA qui analyse, valide ou implémente l’idée doit suivre tout le protocole de reprise du dépôt.
 
 ## Règle de continuité — non optionnelle
 
-`HANDOFF.md` est le journal de continuité du projet. **Toute intervention qui modifie le projet doit y laisser une trace avant de se terminer.**
+`HANDOFF.md` est le journal de continuité du projet. **Toute intervention qui modifie le projet doit y laisser une trace avant de se terminer**, à l’exception d’un simple dépôt d’idée dans `IDEAS_INBOX.md` qui ne change aucune décision.
 
 À minima, mettre à jour :
 
