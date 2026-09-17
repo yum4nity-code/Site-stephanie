@@ -4,9 +4,9 @@ Site vitrine de **Stéphanie Recorda — Conseil RH & Paie pour TPE / PME**.
 
 ## État du projet
 
-**Phase actuelle : cadrage / direction artistique.**
+**Phase actuelle : intégration V1 / durcissement avant mise en ligne.**
 
-La page d’accueil de référence a été validée visuellement le **17 septembre 2026**. Elle est conservée dans `docs/reference/` et constitue la **référence figée** pour la palette, la typographie, les proportions, la densité, le style des cartes, le ton visuel et l’allure générale du futur site.
+La direction visuelle a été validée le **17 septembre 2026** et reste figée dans `docs/reference/homepage-reference-2026-09-17.svg`. La branche `v1-landing-2026-09-17` contient désormais la landing Next.js, le formulaire de rappel, la confirmation agenda, le pipeline Google Calendar orange → vert et les briques de conformité / SEO / sécurité avant lancement.
 
 > Toute personne ou tout agent qui intervient sur ce dépôt doit lire **`AGENTS.md`**, puis **`HANDOFF.md`**, avant de modifier quoi que ce soit.
 
@@ -14,13 +14,12 @@ La page d’accueil de référence a été validée visuellement le **17 septemb
 
 - `HANDOFF.md` — état vivant du projet, décisions prises, travaux en cours et prochain point de reprise.
 - `AGENTS.md` — protocole obligatoire pour toute personne / IA qui travaille dans le dépôt.
-- **`IDEAS_INBOX.md` — boîte à idées partagée, simple et accessible, où Stéphanie ou son IA peuvent déposer de nouvelles idées sans modifier les décisions validées.**
+- `IDEAS_INBOX.md` — boîte à idées partagée.
 - `docs/DESIGN_REFERENCE.md` — règles visuelles issues de la preview validée.
-- `docs/IDEAS.md` — backlog d’idées et pistes produit / UX déjà structurées.
+- `docs/IDEAS.md` — backlog produit / UX.
+- `docs/LAUNCH_CHECKLIST.md` — contrôle pré-lancement technique, conformité, SEO et accessibilité.
 - `content/SITE_CONTENT.md` — contenu et structure actuellement validés.
-- `docs/reference/homepage-reference-2026-09-17.svg` — **référence visuelle figée du layout, des couleurs, de la hiérarchie typographique et de l’allure générale**.
-
-![Référence visuelle figée](docs/reference/homepage-reference-2026-09-17.svg)
+- `docs/reference/homepage-reference-2026-09-17.svg` — référence visuelle figée.
 
 ## Positionnement
 
@@ -50,16 +49,25 @@ Le site doit rester :
 
 Les textes détaillés et les règles d’orientation vers chaque offre sont centralisés dans `content/SITE_CONTENT.md` et `docs/IDEAS.md`.
 
-## Principe UX retenu
+## UX et conversion
 
-Le site peut démarrer comme **une landing page / one-page**. Les trois packs ne doivent pas être des cartes décoratives : ils doivent mener à un détail de l’offre sur la même page ou dans un bloc dépliable, puis vers un CTA prérempli de type **« Échanger sur cette formule »**.
+Le site reste une **landing page / one-page**. Les packs ouvrent leur détail puis un formulaire contextuel. Le bandeau de bénéfices est un élément de réassurance non cliquable.
 
-Le bandeau de quatre bénéfices situé sous le hero est un élément de **réassurance**, pas une navigation : ses éléments ne sont pas destinés à être cliquables.
+Le parcours de conversion principal reste unique : **demander un échange avec Stéphanie**. Les formulations peuvent être contextuelles (« Échanger sur cette formule », « Demander un diagnostic »), mais elles convergent toutes vers le même formulaire de rappel.
 
-Une piste prioritaire est un mini-diagnostic : **« Quelle offre me convient ? »** / **« Trouver mon offre en 1 min »**, afin d’orienter un prospect vers le pack le plus adapté sans transformer le site en tunnel complexe.
+Le mini-diagnostic **« Quelle offre me convient ? »** reste dans le backlog prioritaire.
+
+## Pré-lancement
+
+Avant publication définitive, vérifier `docs/LAUNCH_CHECKLIST.md` et compléter notamment :
+
+- les informations juridiques manquantes des mentions légales ;
+- le domaine public final (`SITE_URL` / `NEXT_PUBLIC_SITE_URL`) ;
+- l’activation définitive du prestataire de formulaire ;
+- les intégrations Google Calendar / Brevo si retenues ;
+- l’outil d’analytics si activé ;
+- la validation finale des textes, tarifs et de la biographie.
 
 ## Règle de continuité
 
-Le projet doit pouvoir être repris par quelqu’un qui n’a jamais vu les conversations précédentes. **Le `HANDOFF.md` doit donc être mis à jour à chaque session où une décision, une modification ou un nouveau point de blocage apparaît.**
-
-Ne pas considérer une décision comme acquise si elle n’est pas inscrite dans le dépôt.
+Le projet doit pouvoir être repris par quelqu’un qui n’a jamais vu les conversations précédentes. **`HANDOFF.md` doit être mis à jour à chaque session où une décision, une modification ou un nouveau point de blocage apparaît.**
