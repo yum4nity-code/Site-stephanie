@@ -62,6 +62,27 @@ const offers = [
   },
 ];
 
+const expertiseServices = [
+  {
+    name: "Diagnostic RH & Organisation du Travail",
+    price: "350 à 400 € HT / jour",
+    description:
+      "Diagnostic terrain des dysfonctionnements, structuration des process RH et accompagnement à la mise en place de nouvelles pratiques.",
+  },
+  {
+    name: "Audit Qualiopi & Conformité CFA / OF",
+    price: "400 € HT / jour",
+    description:
+      "Préparation et suivi des audits Qualiopi sur le volet RH / administratif, avec structuration du suivi des apprenants et formateurs.",
+  },
+  {
+    name: "Sous-traitance Paie",
+    price: "22 à 28 € HT / bulletin",
+    description:
+      "Prise en charge de portefeuilles clients sous Silae et renfort opérationnel lors des pics d’activité des cabinets comptables.",
+  },
+];
+
 export default function Home() {
   return (
     <main className="site-shell">
@@ -214,6 +235,26 @@ export default function Home() {
                 <span className="offer-detail-placeholder" aria-hidden="true">
                   Détail de l’offre à l’étape suivante
                 </span>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="expertise-section" id="expertise" aria-labelledby="expertise-title">
+        <div className="section-inner">
+          <p className="section-kicker">Un appui ciblé pour vos enjeux spécifiques</p>
+          <h2 className="section-title" id="expertise-title">
+            Prestations ponctuelles &amp; missions d’expertise
+          </h2>
+          <span className="section-accent" aria-hidden="true" />
+
+          <div className="expertise-grid">
+            {expertiseServices.map((service) => (
+              <article className="expertise-card" key={service.name}>
+                <h3>{service.name}</h3>
+                <p className="expertise-price">{service.price}</p>
+                <p className="expertise-description">{service.description}</p>
               </article>
             ))}
           </div>
