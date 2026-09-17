@@ -38,11 +38,12 @@ La V1 utilise :
 
 Fichiers principaux : `package.json`, `next.config.mjs`, `tsconfig.json`, `next-env.d.ts`, `.gitignore`, `app/layout.tsx`, `app/page.tsx`, `app/globals.css`.
 
-Un fichier de style dédié a été ajouté pour la section expertise :
+Fichiers de styles dédiés ajoutés :
 
-`app/expertise.css`
+- `app/expertise.css` pour les prestations ponctuelles ;
+- `app/about.css` pour la section À propos.
 
-Il est importé depuis `app/layout.tsx`.
+Ils sont importés depuis `app/layout.tsx`.
 
 ## 3. Éléments déjà intégrés
 
@@ -79,7 +80,7 @@ Principes de design respectés : 3 cartes en desktop, Pack PME mis en avant, pri
 
 ### Prestations ponctuelles & missions d’expertise
 
-La section **« Prestations ponctuelles & missions d’expertise » est maintenant intégrée**.
+La section **« Prestations ponctuelles & missions d’expertise »** est intégrée.
 
 Contenu V1 affiché :
 
@@ -88,6 +89,22 @@ Contenu V1 affiché :
 3. **Sous-traitance Paie** — **22 à 28 € HT / bulletin** — portefeuilles clients sous Silae et renfort opérationnel lors des pics d’activité des cabinets comptables.
 
 Principes de design : 3 cartes sobres sur desktop, fond de section très clair, tarifs visibles, descriptions courtes, empilement vertical sous 900 px. Aucun CTA ni formulaire n’a été ajouté à cette étape.
+
+### À propos
+
+La section **« À propos — Une expertise terrain au service de vos ambitions » est maintenant intégrée**.
+
+Contenu V1 affiché :
+
+- environ **15 ans d’expérience RH** ;
+- **11 ans dans l’Armée de Terre** ;
+- gestion du cycle RH d’unités d’environ **210 à 350 personnes** ;
+- administration du personnel, paie, carrières, entretiens annuels, contrats / avenants, situations disciplinaires ou conflictuelles, organisation du travail et accompagnement de dirigeants / structures de formation ;
+- repères visibles : 15 ans d’expérience RH, 11 ans Armée de Terre, spécialiste paie Silae, 210 à 350 personnes.
+
+La mise en page suit la référence : titre à gauche, base biographique au centre, repères de preuve à droite sur desktop. Elle passe en 2 colonnes puis 1 colonne sur les écrans plus étroits.
+
+Le texte biographique reste à relire et valider par Stéphanie avant production, conformément à `content/SITE_CONTENT.md`.
 
 ## 4. Positionnement et contenu de référence
 
@@ -108,7 +125,6 @@ Source de vérité métier et tarifaire : `content/SITE_CONTENT.md`.
 
 ## 6. Ce qui reste à faire
 
-- intégrer la section À propos ;
 - intégrer le CTA final / contact ;
 - ajouter ensuite les détails actionnables des packs ;
 - implémenter éventuellement le mini-diagnostic ;
@@ -116,12 +132,12 @@ Source de vérité métier et tarifaire : `content/SITE_CONTENT.md`.
 - tester le responsive sur appareils réels ;
 - finaliser SEO / analytics / mentions légales ;
 - effectuer un build / déploiement de validation ;
-- relire coordonnées, textes et tarifs avant production ;
+- relire coordonnées, textes, biographie et tarifs avant production ;
 - faire valider la citation du hero par Stéphanie.
 
 ## 7. Prochaine étape recommandée
 
-Intégrer **uniquement la section À propos**, conformément à la référence visuelle et au contenu métier déjà documenté : titre, base biographique et principaux repères de preuve, sans ajouter d’autres fonctionnalités.
+Intégrer **uniquement le CTA final / bloc contact** conformément à la référence visuelle : titre « Parlons de vos besoins RH & Paie », texte court, téléphone, e-mail, zone d’intervention et bouton « Prendre rendez-vous », sans encore brancher de formulaire ou d’outil externe.
 
 Après cette étape, rendre compte avant de poursuivre.
 
