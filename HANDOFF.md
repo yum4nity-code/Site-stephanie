@@ -59,7 +59,7 @@ Le hero est intégré avec : identité Stéphanie Recorda, navigation desktop, C
 
 La citation du hero reste **à valider textuellement avec Stéphanie avant production** conformément à `content/SITE_CONTENT.md`.
 
-Sur mobile, la citation est désormais masquée afin de ne plus recouvrir le visage de Stéphanie et de raccourcir le hero.
+Sur mobile, la citation est masquée afin de ne plus recouvrir le visage de Stéphanie et de raccourcir le hero.
 
 ### Bandeau de bénéfices
 
@@ -133,15 +133,46 @@ Aucune erreur TypeScript ni erreur de build Next.js n’a été détectée aprè
 
 Le workflow GitHub Actions était temporaire et a été supprimé après validation.
 
-## 5. Validation visuelle — étape 10
+## 5. Validation visuelle
 
-Une preview Vercel dédiée avait été créée pour l’étape 10 :
+### Étape 10 — ancienne preview
+
+Une première preview Vercel avait été créée :
 
 `https://stephanie-recorda-rh-preview-9koymj3h0-guardian13.vercel.app`
 
-Cette preview a servi à identifier deux défauts mobiles : citation recouvrant le visage et accès trop tardif aux offres.
+Elle a permis d’identifier deux défauts mobiles : citation recouvrant le visage et accès trop tardif aux offres.
 
-**Important : cette preview représente désormais l’état AVANT les corrections de l’étape 11. Elle ne doit plus être utilisée pour juger le rendu mobile actuel.**
+**Cette preview représente l’état AVANT les corrections de l’étape 11 et ne doit plus être utilisée comme référence actuelle.**
+
+### Étape 12 — preview post-corrections
+
+Une nouvelle preview Vercel dédiée au contrôle post-étape 11 a été créée :
+
+`https://stephanie-recorda-rh-preview-v2-izgwpzqvm-guardian13.vercel.app`
+
+Le déploiement est protégé par Vercel Authentication. Un lien de partage temporaire a été généré pour consultation externe jusqu’au 18/09/2026 :
+
+`https://stephanie-recorda-rh-preview-v2-izgwpzqvm-guardian13.vercel.app/?_vercel_share=K4UZ2nT0WVoLftjjpaRhZshegMFqn5ql`
+
+Contrôle HTTP via le lien partagé : **200 OK**.
+
+Cette preview reste une copie statique de validation visuelle, fidèle à la hiérarchie mobile et aux interactions de la branche V1 ; elle ne remplace pas l’application Next.js source.
+
+Contrôle visuel effectué en viewport mobile **390 × 844 px** et desktop **1440 × 1000 px**.
+
+Constats mobile après correction :
+
+- le visage de Stéphanie est désormais entièrement visible ;
+- la citation n’est plus superposée au portrait ;
+- le hero est nettement plus court ;
+- les offres forfaitaires arrivent immédiatement après le portrait, avant le bandeau de bénéfices ;
+- les 3 cartes d’offres affichent prix et contenu essentiel sans long préambule ;
+- le contrôle **« Voir le détail »** s’ouvre correctement au tactile / clic ;
+- le détail du Pack TPE a été contrôlé ouvert : contenu lisible et CTA pleine largeur ;
+- les missions ponctuelles disposent elles aussi de détails dépliables.
+
+Aucun nouveau défaut bloquant n’a été identifié pendant cette revue.
 
 ## 6. Décisions UX prises à l’étape 11
 
@@ -160,25 +191,24 @@ Décisions appliquées :
 
 Ces adaptations restent compatibles avec la direction visuelle validée ; l’ordre mobile fait partie des éléments explicitement adaptables dans `docs/DESIGN_REFERENCE.md`.
 
-## 7. État du chantier après étape 11
+## 7. État du chantier après étape 12
 
 La landing dispose maintenant de :
 
 1. header / navigation ;
-2. hero responsive ;
-3. offres forfaitaires avec détails et CTA ;
+2. hero responsive avec portrait mobile corrigé ;
+3. offres forfaitaires placées tôt sur mobile, avec détails et CTA ;
 4. bandeau de bénéfices ;
 5. missions ponctuelles avec détails et CTA ;
 6. À propos ;
 7. CTA final / contact ;
-8. responsive mobile réordonné pour afficher les offres plus tôt ;
-9. typecheck réussi après modifications ;
-10. build Next.js réussi après modifications.
+8. typecheck réussi après modifications ;
+9. build Next.js réussi après modifications ;
+10. preview post-corrections contrôlée sur mobile et desktop.
 
 ## 8. Ce qui reste à faire
 
-- créer une **nouvelle preview visuelle** de l’état post-étape 11 et la contrôler sur mobile réel ;
-- ajuster le recadrage du portrait si nécessaire après ce contrôle ;
+- effectuer si possible un dernier contrôle sur le téléphone réel de Gwen / Stéphanie avec la nouvelle preview ;
 - implémenter éventuellement le mini-diagnostic ;
 - choisir / brancher un vrai outil de formulaire ou de prise de rendez-vous ;
 - finaliser SEO / analytics / mentions légales ;
@@ -187,14 +217,9 @@ La landing dispose maintenant de :
 
 ## 9. Prochaine étape recommandée
 
-Créer une **nouvelle preview Vercel de validation visuelle post-étape 11**, puis vérifier surtout :
+Avant d’ajouter une nouvelle fonctionnalité, faire un **contrôle utilisateur rapide de la preview V2 sur téléphone réel** : vitesse d’accès aux offres, confort des accordions et lisibilité générale.
 
-- que le visage de Stéphanie est entièrement visible sur mobile ;
-- que les offres arrivent assez tôt dans le scroll ;
-- que les accordions « Voir le détail » sont agréables à utiliser au tactile ;
-- que les CTA d’offres / missions ouvrent bien le bon e-mail prérempli.
-
-Après ce contrôle visuel, rendre compte avant de poursuivre vers le mini-diagnostic ou le branchement d’un vrai formulaire / agenda.
+Si ce contrôle est validé, la prochaine fonctionnalité logique est le **mini-diagnostic « Quelle offre me convient ? »**, ou le branchement d’un vrai formulaire / agenda selon la priorité métier.
 
 ## 10. Discipline de reprise
 
