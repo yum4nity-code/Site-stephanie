@@ -37,6 +37,31 @@ function HumanIcon() {
   );
 }
 
+const offers = [
+  {
+    name: "Pack TPE Sérénité",
+    audience: "5 à 10 salariés",
+    price: "690 € HT / mois",
+    featured: false,
+    items: ["Paie & DSN", "Administration RH", "Conseil dirigeant"],
+  },
+  {
+    name: "Pack PME Performance",
+    audience: "11 à 25 salariés",
+    price: "1 190 € HT / mois",
+    featured: true,
+    badge: "Le plus complet",
+    items: ["Gestion globale RH & Paie", "Suivi des talents", "Présence terrain"],
+  },
+  {
+    name: "Pack Sur-Mesure",
+    audience: "+25 salariés / multi-sites",
+    price: "Sur devis",
+    featured: false,
+    items: ["Volume adapté", "Accompagnement évolutif", "Présence selon les besoins"],
+  },
+];
+
 export default function Home() {
   return (
     <main className="site-shell">
@@ -157,6 +182,41 @@ export default function Home() {
               <p>Sur site ou à distance, selon vos besoins</p>
             </div>
           </article>
+        </div>
+      </section>
+
+      <section className="offers-section" id="offres" aria-labelledby="offers-title">
+        <div className="section-inner">
+          <p className="section-kicker">Des solutions adaptées à votre taille et à vos enjeux</p>
+          <h2 className="section-title" id="offers-title">Offres forfaitaires récurrentes</h2>
+          <span className="section-accent" aria-hidden="true" />
+
+          <div className="offers-grid">
+            {offers.map((offer) => (
+              <article
+                className={`offer-card${offer.featured ? " offer-card-featured" : ""}`}
+                key={offer.name}
+              >
+                {offer.badge ? <span className="offer-badge">{offer.badge}</span> : null}
+                <div className="offer-heading">
+                  <h3>{offer.name}</h3>
+                  <p>{offer.audience}</p>
+                </div>
+                <p className="offer-price">{offer.price}</p>
+                <ul className="offer-list">
+                  {offer.items.map((item) => (
+                    <li key={item}>
+                      <span aria-hidden="true">✓</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <span className="offer-detail-placeholder" aria-hidden="true">
+                  Détail de l’offre à l’étape suivante
+                </span>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
     </main>
