@@ -243,9 +243,41 @@ Opt-in séparé, facultatif et non précoché :
 
 **« Je souhaite recevoir ponctuellement les conseils RH & Paie de Stéphanie. Cette inscription est facultative et séparée de ma demande de rappel. »**
 
-En V1, ce consentement aux conseils RH & Paie est enregistré avec la demande. L’inscription automatique dans un outil newsletter n’est pas encore branchée.
+En V1, ce consentement aux conseils RH & Paie est enregistré avec la demande. Le branchement automatique à une liste Brevo est préparé mais ne devient actif que si les variables d’environnement correspondantes sont configurées.
 
 Les CTA des packs et missions ponctuelles ouvrent le même formulaire avec le sujet concerné prérempli.
+
+## Confirmation après envoi
+
+Une fois la demande transmise, le formulaire disparaît et laisse place à un véritable écran de confirmation.
+
+Contenu retenu :
+
+- surtitre : **« Demande envoyée »** ;
+- titre : **« Votre demande est bien partie. »** ;
+- explication : **« Stéphanie a reçu votre demande. Le créneau reste à confirmer : elle vous recontactera pour valider l’échange. »** ;
+- récapitulatif visible : sujet, jour souhaité, créneau et besoin principal ;
+- rappel de l’adresse e-mail utilisée pour la confirmation ;
+- CTA **« Ajouter à Google Agenda »** ;
+- CTA **« Autre agenda (.ics) »** ;
+- bouton **« Fermer »**.
+
+L’entrée agenda est créée comme **« Demande de rappel avec Stéphanie Recorda — à confirmer »**, en journée entière et sans bloquer le temps. Le créneau de préférence est inscrit dans la description. Cela permet au prospect de conserver la trace de sa demande sans faire croire qu’un rendez-vous définitif est déjà réservé.
+
+Les mêmes liens agenda sont inclus dans la demande reçue par Stéphanie afin qu’elle puisse elle aussi conserver la demande dans son agenda avant confirmation.
+
+## Confirmation e-mail automatique
+
+Le backend est prêt à envoyer au prospect un e-mail transactionnel contenant :
+
+- confirmation de réception ;
+- sujet ;
+- jour souhaité ;
+- créneau ;
+- rappel que le rendez-vous reste à confirmer ;
+- liens Google Agenda et `.ics`.
+
+Cette confirmation automatique utilise un raccord optionnel Brevo et ne devient active que lorsque `BREVO_API_KEY` et `BREVO_SENDER_EMAIL` sont configurés. Tant que ce raccord n’est pas actif, le site ne doit pas affirmer qu’un e-mail automatique a été envoyé.
 
 ---
 
@@ -287,7 +319,7 @@ Résultat : proposer le pack le plus cohérent et expliquer brièvement pourquoi
 - politique de confidentialité / cookies si nécessaire ;
 - information sur le prestataire technique utilisé pour recevoir les formulaires ;
 - activation définitive de la réception des formulaires ;
-- choix éventuel d’un outil newsletter pour automatiser l’opt-in ;
+- activation ou remplacement du raccord Brevo pour la confirmation e-mail et l’éventuelle newsletter ;
 - photo haute définition propre ;
-- éventuel outil d’agenda si une réservation directe remplace plus tard le rappel ;
+- éventuel outil d’agenda synchronisé si une réservation directe remplace plus tard le rappel ;
 - coordonnées finales.
