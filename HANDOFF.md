@@ -24,6 +24,12 @@ Cette référence verrouille :
 
 Le détail des règles est dans `docs/DESIGN_REFERENCE.md`.
 
+Le **portrait professionnel de Stéphanie destiné à la V1 web est désormais validé** et déposé dans :
+
+`assets/images/stephanie-recorda-portrait-professionnel.webp`
+
+Cette version web est optimisée en **600 × 750 px**. Elle doit être utilisée comme portrait de référence pour l’intégration du hero, sauf nouvelle validation explicite. Une source de définition supérieure pourra être archivée ultérieurement si un usage print ou très haute densité le nécessite.
+
 ## 2. Positionnement retenu
 
 Stéphanie Recorda est présentée comme consultante / prestataire **RH & Paie externalisée pour TPE et PME**, avec un positionnement professionnel, humain, accessible et orienté dirigeant.
@@ -150,6 +156,7 @@ Fonctionnement :
 - `docs/IDEAS.md` créé avec la liste d’idées discutées, dont le mini-diagnostic et les règles de clic des packs.
 - `content/SITE_CONTENT.md` créé avec les textes, tarifs et structure de contenu actuellement retenus.
 - `docs/reference/homepage-reference-2026-09-17.svg` créé comme référence visuelle figée du dépôt.
+- `assets/images/stephanie-recorda-portrait-professionnel.webp` ajouté : portrait professionnel validé pour la V1 web, optimisé en 600 × 750 px.
 
 ## 8. Ce qui n’est PAS encore fait
 
@@ -159,14 +166,14 @@ Fonctionnement :
 - Pas de formulaire de contact branché.
 - Pas de moteur de mini-diagnostic implémenté.
 - Pas de SEO / analytics / mentions légales finalisés.
-- Pas de photo source haute définition propre déposée pour Stéphanie ; la référence actuelle verrouille la composition mais utilise un emplacement de portrait générique.
+- Pas de source portrait très haute définition archivée pour des usages hors web ; le portrait V1 web est en revanche validé et disponible dans `assets/images/`.
 - Les coordonnées et textes devront être relus avant mise en production.
 
 ## 9. Prochaine étape recommandée
 
-Construire la **V1 de la landing page** en reproduisant fidèlement la référence visuelle, sans inventer de nouvelles sections. Implémenter d’abord : hero, bandeau de bénéfices, offres récurrentes, missions ponctuelles, à propos, CTA final, puis seulement ensuite le mini-diagnostic.
+Construire la **V1 de la landing page** en reproduisant fidèlement la référence visuelle, sans inventer de nouvelles sections. Implémenter d’abord : hero avec le portrait validé, bandeau de bénéfices, offres récurrentes, missions ponctuelles, à propos, CTA final, puis seulement ensuite le mini-diagnostic.
 
-Avant mise en ligne : relecture complète des textes, validation des tarifs, coordonnées, mentions légales et photo définitive.
+Avant mise en ligne : relecture complète des textes, validation des tarifs, coordonnées et mentions légales. Le portrait web V1 est déjà validé.
 
 ## 10. Discipline de reprise
 
