@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 import {
+  attachHandledActionLink,
   buildHandledActionUrl,
   createPendingCalendarEvent,
   deleteCalendarEvent,
@@ -209,6 +210,11 @@ export async function POST(request: Request) {
 
     if (ownerCalendarEvent) {
       ownerHandledActionUrl = buildHandledActionUrl(request, ownerCalendarEvent.id);
+      if (ownerHandledActionUrl) {
+        await attachHandledActionLink(ownerCalendarEvent.id, ownerHandledActionUrl).catch(
+          () => undefined,
+        );
+      }
     }
   } catch {
     // A Calendar outage or missing OAuth setup must never lose the lead.
