@@ -14,8 +14,9 @@ La page d’accueil de référence a été validée visuellement le **17 septemb
 
 - `HANDOFF.md` — état vivant du projet, décisions prises, travaux en cours et prochain point de reprise.
 - `AGENTS.md` — protocole obligatoire pour toute personne / IA qui travaille dans le dépôt.
+- **`IDEAS_INBOX.md` — boîte à idées partagée, simple et accessible, où Stéphanie ou son IA peuvent déposer de nouvelles idées sans modifier les décisions validées.**
 - `docs/DESIGN_REFERENCE.md` — règles visuelles issues de la preview validée.
-- `docs/IDEAS.md` — backlog d’idées et pistes produit / UX.
+- `docs/IDEAS.md` — backlog d’idées et pistes produit / UX déjà structurées.
 - `content/SITE_CONTENT.md` — contenu et structure actuellement validés.
 - `docs/reference/homepage-reference-2026-09-17.svg` — **référence visuelle figée du layout, des couleurs, de la hiérarchie typographique et de l’allure générale**.
 
