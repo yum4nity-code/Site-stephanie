@@ -44,6 +44,21 @@ const offers = [
     price: "690 € HT / mois",
     featured: false,
     items: ["Paie & DSN", "Administration RH", "Conseil dirigeant"],
+    details: [
+      {
+        title: "Paie & DSN",
+        text: "Établissement complet des bulletins sous Silae, télétransmission DSN, suivi des absences et variables.",
+      },
+      {
+        title: "Administration RH",
+        text: "DPAE, contrats, avenants, soldes de tout compte et affiliations mutuelle / prévoyance.",
+      },
+      {
+        title: "Conseil dirigeant",
+        text: "Assistance sur les questions réglementaires et la gestion RH du quotidien.",
+      },
+    ],
+    cta: "Échanger sur cette formule",
   },
   {
     name: "Pack PME Performance",
@@ -52,6 +67,21 @@ const offers = [
     featured: true,
     badge: "Le plus complet",
     items: ["Gestion globale RH & Paie", "Suivi des talents", "Présence terrain"],
+    details: [
+      {
+        title: "Gestion globale RH & Paie",
+        text: "Traitement de la paie, déclarations sociales et administration du personnel.",
+      },
+      {
+        title: "Suivi des talents",
+        text: "Entretiens annuels, fiches de poste et suivi de la formation.",
+      },
+      {
+        title: "Présence terrain",
+        text: "Demi-journée mensuelle sur site, conseil organisationnel et appui au dirigeant.",
+      },
+    ],
+    cta: "Échanger sur cette formule",
   },
   {
     name: "Pack Sur-Mesure",
@@ -59,6 +89,21 @@ const offers = [
     price: "Sur devis",
     featured: false,
     items: ["Volume adapté", "Accompagnement évolutif", "Présence selon les besoins"],
+    details: [
+      {
+        title: "Volume adapté",
+        text: "Ajustement du volume d’heures et de la présence sur site selon la complexité et les besoins organisationnels.",
+      },
+      {
+        title: "Accompagnement personnalisé",
+        text: "Une organisation évolutive construite avec l’entreprise.",
+      },
+      {
+        title: "Devis selon votre contexte",
+        text: "Effectif, multi-sites, conventions collectives, volume de paie, saisonnalité, complexité administrative et fréquence de présence peuvent être pris en compte.",
+      },
+    ],
+    cta: "Demander une estimation",
   },
 ];
 
@@ -68,18 +113,34 @@ const expertiseServices = [
     price: "350 à 400 € HT / jour",
     description:
       "Diagnostic terrain des dysfonctionnements, structuration des process RH et accompagnement à la mise en place de nouvelles pratiques.",
+    details: [
+      "Diagnostic terrain des dysfonctionnements organisationnels.",
+      "Structuration de process RH et de politiques internes.",
+      "Accompagnement à la mise en place de nouvelles pratiques.",
+    ],
+    cta: "Demander un diagnostic",
   },
   {
     name: "Audit Qualiopi & Conformité CFA / OF",
     price: "400 € HT / jour",
     description:
       "Préparation et suivi des audits Qualiopi sur le volet RH / administratif, avec structuration du suivi des apprenants et formateurs.",
+    details: [
+      "Préparation et suivi des audits Qualiopi sur le volet RH / administratif.",
+      "Structuration du suivi administratif des apprenants et formateurs.",
+    ],
+    cta: "Me parler de cette mission",
   },
   {
     name: "Sous-traitance Paie",
     price: "22 à 28 € HT / bulletin",
     description:
       "Prise en charge de portefeuilles clients sous Silae et renfort opérationnel lors des pics d’activité des cabinets comptables.",
+    details: [
+      "Prise en charge de portefeuilles clients sous Silae.",
+      "Renfort opérationnel lors des pics d’activité.",
+    ],
+    cta: "Me parler de cette mission",
   },
 ];
 
@@ -101,6 +162,10 @@ const aboutProofs = [
     detail: "Gestion RH d’unités de taille significative.",
   },
 ];
+
+function contactHref(subject: string) {
+  return `mailto:stephanie.recorda1@gmail.com?subject=${encodeURIComponent(subject)}`;
+}
 
 export default function Home() {
   return (
@@ -154,17 +219,17 @@ export default function Home() {
                 <span className="contact-icon" aria-hidden="true">☎</span>
                 06.50.73.88.92
               </a>
-              <a href="mailto:stephanie.recorda1@gmail.com">
+              <a className="hero-email" href="mailto:stephanie.recorda1@gmail.com">
                 <span className="contact-icon" aria-hidden="true">✉</span>
                 stephanie.recorda1@gmail.com
               </a>
             </div>
 
             <div className="hero-actions">
-              <a className="button button-primary" href="#contact">
+              <a className="button button-primary hero-contact-cta" href="#contact">
                 Prendre rendez-vous
               </a>
-              <a className="button button-secondary" href="#offres">
+              <a className="button button-secondary hero-offers-cta" href="#offres">
                 Découvrir mes offres
               </a>
             </div>
@@ -251,9 +316,26 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <span className="offer-detail-placeholder" aria-hidden="true">
-                  Détail de l’offre à l’étape suivante
-                </span>
+
+                <details className="offer-details">
+                  <summary className="detail-trigger">Voir le détail</summary>
+                  <div className="detail-panel">
+                    <ul className="detail-list">
+                      {offer.details.map((detail) => (
+                        <li key={detail.title}>
+                          <strong>{detail.title}</strong>
+                          <span>{detail.text}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <a
+                      className="button button-primary detail-cta"
+                      href={contactHref(`${offer.name} — demande d’échange`)}
+                    >
+                      {offer.cta}
+                    </a>
+                  </div>
+                </details>
               </article>
             ))}
           </div>
@@ -274,6 +356,23 @@ export default function Home() {
                 <h3>{service.name}</h3>
                 <p className="expertise-price">{service.price}</p>
                 <p className="expertise-description">{service.description}</p>
+
+                <details className="expertise-details">
+                  <summary className="detail-trigger">Voir le détail</summary>
+                  <div className="detail-panel">
+                    <ul className="detail-list detail-list-simple">
+                      {service.details.map((detail) => (
+                        <li key={detail}>{detail}</li>
+                      ))}
+                    </ul>
+                    <a
+                      className="button button-primary detail-cta"
+                      href={contactHref(`${service.name} — demande d’information`)}
+                    >
+                      {service.cta}
+                    </a>
+                  </div>
+                </details>
               </article>
             ))}
           </div>
