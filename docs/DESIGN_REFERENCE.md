@@ -1,10 +1,10 @@
 # Design reference — verrou visuel V1
 
 **Statut : APPROUVÉ / À CONSERVER**  
-**Référence : `docs/reference/homepage-reference-2026-09-17.png`**  
+**Référence : `docs/reference/homepage-reference-2026-09-17.svg`**  
 **Date de validation : 17 septembre 2026**
 
-La preview fait foi en cas de doute. Ce document traduit son langage visuel en règles d’intégration.
+La preview validée fait foi sur l’intention. Le SVG du dépôt en fige la composition, la palette, la hiérarchie typographique et l’allure générale afin que le projet reste reprenable sans contexte externe.
 
 ## 1. Intention
 
