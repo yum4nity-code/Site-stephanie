@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import CallbackDialog from "./callback-form";
 import ContactCta from "./contact-cta";
 import "./globals.css";
 import "./expertise.css";
 import "./about.css";
 import "./contact.css";
 import "./conversion.css";
+import "./callback-form.css";
 
 export const metadata: Metadata = {
   title: "Stéphanie Recorda | Conseil RH & Paie",
@@ -22,6 +24,7 @@ export default function RootLayout({
       <body>
         {children}
         <ContactCta />
+        <CallbackDialog />
       </body>
     </html>
   );
