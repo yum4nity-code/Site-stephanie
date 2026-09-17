@@ -2,6 +2,31 @@
 
 Ce fichier conserve les idées évoquées, qu’elles soient validées, à tester ou simplement à garder sous la main.
 
+## Implémenté
+
+### Demande de rappel avec créneau de préférence
+
+Le CTA **« Prendre rendez-vous »** ouvre désormais un formulaire intégré au site plutôt qu’un e-mail brut.
+
+Le prospect peut renseigner :
+
+- nom / prénom ;
+- entreprise ;
+- téléphone ;
+- e-mail ;
+- besoin principal ;
+- jour souhaité ;
+- créneau de préférence : matin / pause déjeuner / après-midi / fin de journée / flexible ;
+- message libre facultatif.
+
+Le créneau est explicitement présenté comme une **préférence de rappel**, pas comme une réservation automatique d’agenda.
+
+Un consentement facultatif séparé permet d’indiquer : **« Je souhaite recevoir ponctuellement les conseils RH & Paie de Stéphanie »**. Il n’est jamais précoché.
+
+Les CTA contextuels des packs et des missions ponctuelles utilisent le même formulaire avec le sujet concerné prérempli.
+
+Pour la V1, le consentement newsletter est enregistré dans la demande mais **l’ajout automatique à une plateforme d’e-mailing n’est pas encore branché**. Un outil dédié (Brevo, Mailchimp ou équivalent) pourra être choisi plus tard si Stéphanie lance réellement une newsletter.
+
 ## Priorité haute
 
 ### 1. Mini-diagnostic « Quelle offre me convient ? »
@@ -113,7 +138,7 @@ Ne pas inventer de logos clients ni de témoignages.
 
 ### 8. Prise de rendez-vous intégrée
 
-Bouton **« Prendre rendez-vous »** relié à un agenda lorsque l’outil et les disponibilités seront choisis.
+Le formulaire de rappel est maintenant intégré. Un **véritable agenda synchronisé** reste une évolution possible lorsque l’outil et les disponibilités seront choisis.
 
 ### 9. FAQ
 
@@ -142,8 +167,7 @@ Questions candidates :
 
 - Wording final : « Sécurisez » ou « Fiabilisez » votre paie ?
 - Le mini-diagnostic est-il visible dès le hero, après les bénéfices ou au niveau des offres ?
-- Les détails des packs seront-ils en accordion, modal ou section ancrée ?
-- Quel outil de prise de rendez-vous ?
-- Quel outil de formulaire / destination des leads ?
+- Quel outil d’agenda synchronisé si Stéphanie veut passer du rappel à la réservation directe ?
+- Quel outil de newsletter si l’opt-in doit devenir un abonnement automatisé ?
 - Photo définitive haute résolution de Stéphanie à fournir.
 - Mentions légales / statut / données RGPD à finaliser avant production.
