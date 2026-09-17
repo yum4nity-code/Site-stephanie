@@ -43,6 +43,23 @@ Le mail reçu par Stéphanie contient également les deux liens agenda afin qu�
 
 Le backend contient en plus un raccord optionnel Brevo pour envoyer automatiquement au prospect un e-mail de confirmation avec le même récapitulatif et les mêmes liens agenda. Ce mail n’est envoyé que si `BREVO_API_KEY` et `BREVO_SENDER_EMAIL` sont configurés. Sans ces variables, la demande principale continue d’être transmise à Stéphanie via FormSubmit et l’interface ne prétend pas qu’un e-mail automatique a été envoyé.
 
+### Suivi des demandes dans Google Agenda de Stéphanie — orange → vert
+
+Le pipeline est maintenant **préparé dans le code** pour créer automatiquement chaque nouvelle demande dans le Google Agenda de Stéphanie lorsque son OAuth Google sera configuré.
+
+Comportement retenu :
+
+- nouvelle demande : événement **orange**, titre préfixé **« [À TRAITER] »** ;
+- l’événement reste non bloquant et conserve le jour + le créneau de préférence ;
+- le mail reçu par Stéphanie contient un lien **« Ouvrir / marquer traitée »** ;
+- le même lien est ajouté dans la description de l’événement Google Agenda ;
+- ce lien ouvre d’abord un petit écran de confirmation avec le bouton **« Marquer traitée et ouvrir l’agenda »** ;
+- après cette action explicite, l’événement passe en **vert**, son titre devient **« [TRAITÉE] »**, puis Google Agenda s’ouvre sur l’événement.
+
+Le changement de couleur n’est volontairement **pas basé sur une simple ouverture de l’événement**, car Google Agenda n’expose pas un état fiable « lu / ouvert ». L’action explicite évite aussi qu’un scanner de sécurité d’e-mail déclenche le changement de statut en suivant automatiquement un lien.
+
+Le code utilise par défaut des `colorId` configurables pour l’intention orange / vert. Le raccord n’est réellement actif qu’après configuration des identifiants Google Calendar et du secret de signature côté serveur.
+
 ## Priorité haute
 
 ### 1. Mini-diagnostic « Quelle offre me convient ? »
@@ -154,9 +171,13 @@ Ne pas inventer de logos clients ni de témoignages.
 
 ### 8. Véritable agenda synchronisé
 
-Les liens **Google Agenda** et **.ics** pour conserver une demande « à confirmer » sont maintenant préparés et intégrés au parcours.
+Le site sait désormais préparer :
 
-Une vraie réservation synchronisée reste une évolution ultérieure : elle devra lire les disponibilités réelles de Stéphanie, créer un rendez-vous confirmé dans les deux calendriers et gérer les modifications / annulations. Tant que cet outil n’est pas choisi, le site ne doit pas faire croire qu’un créneau est réservé automatiquement.
+- les liens **Google Agenda** / **.ics** côté prospect ;
+- la création automatique d’une demande dans l’agenda de Stéphanie dès que son OAuth Google est configuré ;
+- un statut opérationnel orange **à traiter** puis vert **traitée**.
+
+Une vraie réservation synchronisée reste une évolution ultérieure : elle devra lire les disponibilités réelles de Stéphanie, créer un horaire définitif dans les deux calendriers, gérer les invitations, modifications et annulations. Tant que cet outil n’est pas choisi, le site ne doit pas faire croire qu’un créneau est réservé automatiquement.
 
 ### 9. FAQ
 
@@ -186,6 +207,7 @@ Questions candidates :
 - Wording final : « Sécurisez » ou « Fiabilisez » votre paie ?
 - Le mini-diagnostic est-il visible dès le hero, après les bénéfices ou au niveau des offres ?
 - Quel outil d’agenda synchronisé si Stéphanie veut passer du rappel à la réservation directe ?
+- Activer la connexion OAuth Google Calendar préparée dans le code et vérifier les couleurs réelles dans l’agenda de Stéphanie.
 - Activer Brevo pour l’e-mail transactionnel et l’opt-in newsletter, ou choisir un autre prestataire avant production ?
 - Photo définitive haute résolution de Stéphanie à fournir.
 - Mentions légales / statut / données RGPD à finaliser avant production.
