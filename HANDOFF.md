@@ -136,7 +136,53 @@ Le workflow utilisé pour ce contrôle était temporaire (`.github/workflows/v1-
 
 Aucune décision UX, visuelle ou métier n’a changé pendant cette validation.
 
-## 5. Positionnement et contenu de référence
+## 5. Validation visuelle — étape 10
+
+Une **preview Vercel dédiée à la validation visuelle** a été créée le 17/09/2026 :
+
+`https://stephanie-recorda-rh-preview-9koymj3h0-guardian13.vercel.app`
+
+Le contrôle HTTP de cette preview retourne **200 OK**.
+
+### Nature de cette preview
+
+Cette URL est volontairement une **copie statique de contrôle visuel** reproduisant la structure, les contenus, la palette, les espacements et le responsive actuellement présents dans la branche V1. Elle sert uniquement à voir et partager le rendu avant la suite du chantier.
+
+Elle ne remplace pas l’application Next.js du dépôt et ne constitue pas un déploiement de production. Le vrai projet Next.js a déjà passé avec succès `typecheck` et `build` lors de l’étape 9.
+
+Le portrait affiché par la preview est le portrait validé stocké dans le dépôt GitHub.
+
+### Contrôle desktop
+
+Le rendu desktop ne présente **aucun défaut bloquant** identifié lors de la revue :
+
+- header équilibré ;
+- hero lisible et conforme à l’intention ;
+- portrait correctement mis en valeur ;
+- bandeau de bénéfices cohérent ;
+- cartes d’offres correctement alignées ;
+- missions d’expertise lisibles ;
+- section À propos structurée en trois zones ;
+- CTA final clair et cohérent avec la direction artistique.
+
+### Contrôle mobile
+
+Le responsive mobile fonctionne sans débordement horizontal constaté :
+
+- header simplifié ;
+- hero empilé correctement ;
+- CTA tactiles en pleine largeur lorsque nécessaire ;
+- bénéfices, offres, expertise et preuves À propos empilés proprement ;
+- CTA final lisible et exploitable.
+
+Deux points de **polish non bloquants** ont été relevés pour une étape ultérieure :
+
+1. la citation du hero occupe une partie importante du haut du portrait sur petit écran et mérite d’être repositionnée ou allégée ;
+2. quelques textes secondaires sont assez petits sur mobile et pourront être légèrement renforcés pour améliorer encore le confort de lecture.
+
+Aucune modification du code source n’a été effectuée pendant cette revue visuelle ; seuls la preview et ce journal de continuité ont été ajoutés / mis à jour.
+
+## 6. Positionnement et contenu de référence
 
 Stéphanie Recorda est présentée comme consultante / prestataire **RH & Paie externalisée pour TPE et PME**, avec un positionnement professionnel, humain, accessible et orienté dirigeant.
 
@@ -146,7 +192,7 @@ Zone affichée : **Strasbourg & Bas-Rhin, sur site / à distance**.
 
 Source de vérité métier et tarifaire : `content/SITE_CONTENT.md`.
 
-## 6. Décisions UX à conserver
+## 7. Décisions UX à conserver
 
 - Les 4 bénéfices sous le hero restent non cliquables.
 - Les 3 cartes d’offres doivent devenir actionnables : bouton « Voir le détail », ancre ou bloc dépliable, détail utile, puis CTA « Échanger sur cette formule ».
@@ -154,9 +200,9 @@ Source de vérité métier et tarifaire : `content/SITE_CONTENT.md`.
 - Le CTA final peut rester basé sur e-mail en V1 tant qu’aucun outil de prise de rendez-vous n’est choisi.
 - Ne pas repartir de zéro sur la direction artistique : marine / blanc / bleu pâle, titres serif, texte sans-serif, beaucoup d’espace blanc, impression cabinet premium accessible.
 
-## 7. État du chantier après étape 9
+## 8. État du chantier après étape 10
 
-La **structure principale de la landing page est complète et son build est validé** :
+La **structure principale de la landing page est complète, son build est validé et son rendu global a été contrôlé en desktop et mobile** :
 
 1. header / navigation ;
 2. hero ;
@@ -166,26 +212,27 @@ La **structure principale de la landing page est complète et son build est vali
 6. À propos ;
 7. CTA final / contact ;
 8. typecheck réussi ;
-9. build Next.js réussi.
+9. build Next.js réussi ;
+10. preview visuelle Vercel contrôlée en desktop et mobile.
 
-## 8. Ce qui reste à faire
+## 9. Ce qui reste à faire
 
-- effectuer une validation visuelle globale sur une preview réellement rendue ;
+- corriger / affiner les deux points de polish mobile relevés pendant l’étape 10 ;
 - rendre les cartes d’offres actionnables avec leurs détails ;
 - implémenter éventuellement le mini-diagnostic ;
 - choisir / brancher un vrai outil de formulaire ou de prise de rendez-vous ;
-- tester le responsive sur appareils réels ;
+- tester ensuite le responsive sur des appareils réels ;
 - finaliser SEO / analytics / mentions légales ;
 - relire coordonnées, textes, biographie et tarifs avant production ;
 - faire valider la citation du hero par Stéphanie.
 
-## 9. Prochaine étape recommandée
+## 10. Prochaine étape recommandée
 
-Créer une **preview de validation visuelle** de la branche V1, idéalement sur Vercel, puis vérifier la page réellement rendue sur desktop et mobile avant d’ajouter les interactions des offres.
+Effectuer une **courte passe de polish mobile**, sans changer la direction artistique : repositionner / alléger la citation superposée au portrait et améliorer légèrement la lisibilité des petits textes mobiles.
 
-Après cette validation visuelle, rendre compte avant de poursuivre les fonctionnalités supplémentaires.
+Après cette micro-passe visuelle, revalider rapidement avant d’ajouter les interactions des offres.
 
-## 10. Discipline de reprise
+## 11. Discipline de reprise
 
 Toute personne / IA reprenant ce projet doit :
 
