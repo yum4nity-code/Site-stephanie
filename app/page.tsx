@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { CallbackButton } from "./callback-form";
 
 function PayrollIcon() {
   return (
@@ -163,10 +164,6 @@ const aboutProofs = [
   },
 ];
 
-function contactHref(subject: string) {
-  return `mailto:stephanie.recorda1@gmail.com?subject=${encodeURIComponent(subject)}`;
-}
-
 export default function Home() {
   return (
     <main className="site-shell">
@@ -187,9 +184,9 @@ export default function Home() {
           <a href="#contact">Contact</a>
         </nav>
 
-        <a className="button button-primary header-cta" href="#contact">
+        <CallbackButton className="button button-primary header-cta">
           Prendre rendez-vous
-        </a>
+        </CallbackButton>
       </header>
 
       <section className="hero" id="accueil" aria-labelledby="hero-title">
@@ -226,9 +223,9 @@ export default function Home() {
             </div>
 
             <div className="hero-actions">
-              <a className="button button-primary hero-contact-cta" href="#contact">
+              <CallbackButton className="button button-primary hero-contact-cta">
                 Prendre rendez-vous
-              </a>
+              </CallbackButton>
               <a className="button button-secondary hero-offers-cta" href="#offres">
                 Découvrir mes offres
               </a>
@@ -328,12 +325,12 @@ export default function Home() {
                         </li>
                       ))}
                     </ul>
-                    <a
+                    <CallbackButton
                       className="button button-primary detail-cta"
-                      href={contactHref(`${offer.name} — demande d’échange`)}
+                      context={offer.name}
                     >
                       {offer.cta}
-                    </a>
+                    </CallbackButton>
                   </div>
                 </details>
               </article>
@@ -365,12 +362,12 @@ export default function Home() {
                         <li key={detail}>{detail}</li>
                       ))}
                     </ul>
-                    <a
+                    <CallbackButton
                       className="button button-primary detail-cta"
-                      href={contactHref(`${service.name} — demande d’information`)}
+                      context={service.name}
                     >
                       {service.cta}
-                    </a>
+                    </CallbackButton>
                   </div>
                 </details>
               </article>
