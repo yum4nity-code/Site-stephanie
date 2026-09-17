@@ -125,17 +125,33 @@ La preview validée impose une base :
 
 Les valeurs de palette et le mapping typographique de départ sont maintenant consignés dans `docs/DESIGN_REFERENCE.md`.
 
-## 6. Ce qui a été déposé le 17/09/2026
+## 6. Boîte à idées partagée
+
+Un fichier **`IDEAS_INBOX.md`** a été ajouté à la racine du dépôt pour permettre à Stéphanie, Gwen ou leurs assistants IA de déposer facilement de nouvelles idées.
+
+Fonctionnement :
+
+- l’inbox est un sas de dépôt, pas une source de décisions validées ;
+- une IA peut y ajouter une idée sans toucher au reste du projet ;
+- les idées sont datées, attribuées si possible et conservées avec un statut ;
+- une idée validée est ensuite transférée dans `docs/IDEAS.md` ;
+- si elle devient une décision ou modifie le site, `HANDOFF.md` et les autres sources de vérité doivent être mis à jour ;
+- une idée rejetée reste tracée avec une raison courte.
+
+`README.md` et `AGENTS.md` renvoient désormais explicitement vers cette inbox.
+
+## 7. Ce qui a été déposé le 17/09/2026
 
 - `README.md` enrichi avec l’état, les offres, l’UX et les sources de vérité.
 - `AGENTS.md` créé avec protocole obligatoire de reprise et de mise à jour du handoff.
 - `HANDOFF.md` créé et rendu obligatoire à chaque intervention.
+- `IDEAS_INBOX.md` créé comme boîte à idées simple et partagée.
 - `docs/DESIGN_REFERENCE.md` créé avec palette, typographies, composants et règles de fidélité.
 - `docs/IDEAS.md` créé avec la liste d’idées discutées, dont le mini-diagnostic et les règles de clic des packs.
 - `content/SITE_CONTENT.md` créé avec les textes, tarifs et structure de contenu actuellement retenus.
 - `docs/reference/homepage-reference-2026-09-17.svg` créé comme référence visuelle figée du dépôt.
 
-## 7. Ce qui n’est PAS encore fait
+## 8. Ce qui n’est PAS encore fait
 
 - Pas de stack technique choisie définitivement.
 - Pas d’intégration HTML / React / Next / autre dans le dépôt.
@@ -146,18 +162,19 @@ Les valeurs de palette et le mapping typographique de départ sont maintenant co
 - Pas de photo source haute définition propre déposée pour Stéphanie ; la référence actuelle verrouille la composition mais utilise un emplacement de portrait générique.
 - Les coordonnées et textes devront être relus avant mise en production.
 
-## 8. Prochaine étape recommandée
+## 9. Prochaine étape recommandée
 
 Construire la **V1 de la landing page** en reproduisant fidèlement la référence visuelle, sans inventer de nouvelles sections. Implémenter d’abord : hero, bandeau de bénéfices, offres récurrentes, missions ponctuelles, à propos, CTA final, puis seulement ensuite le mini-diagnostic.
 
 Avant mise en ligne : relecture complète des textes, validation des tarifs, coordonnées, mentions légales et photo définitive.
 
-## 9. Discipline de reprise
+## 10. Discipline de reprise
 
 Toute personne / IA reprenant ce projet doit :
 
 1. lire `AGENTS.md` ;
 2. lire ce handoff en entier ;
-3. vérifier l’état réel du dépôt avant d’agir ;
-4. ne pas contredire une décision documentée sans validation explicite ;
-5. mettre à jour ce fichier avant de terminer son intervention.
+3. vérifier `IDEAS_INBOX.md` pour les nouvelles propositions non encore triées ;
+4. vérifier l’état réel du dépôt avant d’agir ;
+5. ne pas contredire une décision documentée sans validation explicite ;
+6. mettre à jour ce fichier avant de terminer son intervention, sauf simple ajout d’idée dans l’inbox sans changement de décision.
