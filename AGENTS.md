@@ -28,7 +28,7 @@ Si aucune décision n’a changé, l’indiquer explicitement plutôt que de lai
 
 ## Référence visuelle figée
 
-Le fichier `docs/reference/homepage-reference-2026-09-17.png` est la **référence visuelle approuvée**.
+Le fichier `docs/reference/homepage-reference-2026-09-17.svg` est la **référence visuelle approuvée du dépôt** pour le layout, les couleurs, la hiérarchie typographique et l’allure générale.
 
 À conserver sauf instruction explicite du propriétaire du projet :
 
@@ -41,7 +41,7 @@ Le fichier `docs/reference/homepage-reference-2026-09-17.png` est la **référen
 
 Une implémentation peut améliorer l’accessibilité, le responsive, la netteté ou la cohérence technique **sans dériver de l’allure générale validée**.
 
-Ne jamais remplacer la preview de référence par une nouvelle interprétation sans validation explicite. Si une nouvelle direction est approuvée, conserver l’ancienne référence dans l’historique et documenter le changement dans `HANDOFF.md`.
+Ne jamais remplacer la référence visuelle par une nouvelle interprétation sans validation explicite. Si une nouvelle direction est approuvée, conserver l’ancienne référence dans l’historique et documenter le changement dans `HANDOFF.md`.
 
 ## Contenu commercial
 
