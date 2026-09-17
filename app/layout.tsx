@@ -4,6 +4,7 @@ import "./globals.css";
 import "./expertise.css";
 import "./about.css";
 import "./contact.css";
+import "./conversion.css";
 
 export const metadata: Metadata = {
   title: "Stéphanie Recorda | Conseil RH & Paie",
