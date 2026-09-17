@@ -104,7 +104,7 @@ Le texte biographique reste à relire et valider par Stéphanie avant production
 
 ### CTA final / Contact
 
-Le **bloc final de contact est maintenant intégré** conformément à la référence visuelle.
+Le bloc final de contact est intégré conformément à la référence visuelle.
 
 Il affiche :
 
@@ -118,9 +118,25 @@ Il affiche :
 
 Le bouton ouvre actuellement un e-mail pré-adressé avec un objet de prise de rendez-vous. Aucun outil externe de calendrier ou formulaire n’est branché à ce stade.
 
-Le design reprend le panneau bleu marine de la référence, avec texte blanc et CTA blanc. Il est responsive et passe en disposition verticale sur mobile.
+## 4. Validation technique — étape 9
 
-## 4. Positionnement et contenu de référence
+Une **validation technique complète de la landing V1 a été effectuée le 17/09/2026** sur GitHub Actions avec Node.js 22.
+
+Contrôles exécutés :
+
+- installation des dépendances avec `npm install --package-lock=false --no-audit --no-fund` ;
+- `npm run typecheck` ;
+- `npm run build`.
+
+Résultat : **SUCCÈS sur toutes les étapes**.
+
+Aucune erreur TypeScript ni erreur de build Next.js n’a été détectée. **Aucune correction de code n’a donc été nécessaire pendant cette étape.**
+
+Le workflow utilisé pour ce contrôle était temporaire (`.github/workflows/v1-build-check.yml`) et a été supprimé immédiatement après validation afin de ne pas modifier durablement l’architecture CI du projet.
+
+Aucune décision UX, visuelle ou métier n’a changé pendant cette validation.
+
+## 5. Positionnement et contenu de référence
 
 Stéphanie Recorda est présentée comme consultante / prestataire **RH & Paie externalisée pour TPE et PME**, avec un positionnement professionnel, humain, accessible et orienté dirigeant.
 
@@ -130,7 +146,7 @@ Zone affichée : **Strasbourg & Bas-Rhin, sur site / à distance**.
 
 Source de vérité métier et tarifaire : `content/SITE_CONTENT.md`.
 
-## 5. Décisions UX à conserver
+## 6. Décisions UX à conserver
 
 - Les 4 bénéfices sous le hero restent non cliquables.
 - Les 3 cartes d’offres doivent devenir actionnables : bouton « Voir le détail », ancre ou bloc dépliable, détail utile, puis CTA « Échanger sur cette formule ».
@@ -138,9 +154,9 @@ Source de vérité métier et tarifaire : `content/SITE_CONTENT.md`.
 - Le CTA final peut rester basé sur e-mail en V1 tant qu’aucun outil de prise de rendez-vous n’est choisi.
 - Ne pas repartir de zéro sur la direction artistique : marine / blanc / bleu pâle, titres serif, texte sans-serif, beaucoup d’espace blanc, impression cabinet premium accessible.
 
-## 6. État du chantier après étape 8
+## 7. État du chantier après étape 9
 
-La **structure principale de la landing page est maintenant complète** :
+La **structure principale de la landing page est complète et son build est validé** :
 
 1. header / navigation ;
 2. hero ;
@@ -148,29 +164,28 @@ La **structure principale de la landing page est maintenant complète** :
 4. offres forfaitaires ;
 5. missions ponctuelles ;
 6. À propos ;
-7. CTA final / contact.
+7. CTA final / contact ;
+8. typecheck réussi ;
+9. build Next.js réussi.
 
-Il reste à enrichir et fiabiliser avant production.
+## 8. Ce qui reste à faire
 
-## 7. Ce qui reste à faire
-
+- effectuer une validation visuelle globale sur une preview réellement rendue ;
 - rendre les cartes d’offres actionnables avec leurs détails ;
 - implémenter éventuellement le mini-diagnostic ;
 - choisir / brancher un vrai outil de formulaire ou de prise de rendez-vous ;
-- effectuer un build de validation et corriger les erreurs éventuelles ;
 - tester le responsive sur appareils réels ;
 - finaliser SEO / analytics / mentions légales ;
 - relire coordonnées, textes, biographie et tarifs avant production ;
-- faire valider la citation du hero par Stéphanie ;
-- déployer une preview Vercel pour validation visuelle globale.
+- faire valider la citation du hero par Stéphanie.
 
-## 8. Prochaine étape recommandée
+## 9. Prochaine étape recommandée
 
-Faire une **première validation technique de la landing page complète** : vérifier que le projet compile / build correctement, repérer les erreurs TypeScript / Next.js éventuelles et corriger uniquement ce qui bloque le build.
+Créer une **preview de validation visuelle** de la branche V1, idéalement sur Vercel, puis vérifier la page réellement rendue sur desktop et mobile avant d’ajouter les interactions des offres.
 
-Après ce contrôle, rendre compte avant d’ajouter les interactions des offres ou de poursuivre vers le mini-diagnostic.
+Après cette validation visuelle, rendre compte avant de poursuivre les fonctionnalités supplémentaires.
 
-## 9. Discipline de reprise
+## 10. Discipline de reprise
 
 Toute personne / IA reprenant ce projet doit :
 
