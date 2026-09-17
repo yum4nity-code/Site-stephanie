@@ -17,7 +17,9 @@ La page d’accueil de référence a été validée visuellement le **17 septemb
 - `docs/DESIGN_REFERENCE.md` — règles visuelles issues de la preview validée.
 - `docs/IDEAS.md` — backlog d’idées et pistes produit / UX.
 - `content/SITE_CONTENT.md` — contenu et structure actuellement validés.
-- `docs/reference/homepage-reference-2026-09-17.png` — **preview visuelle de référence figée**.
+- `docs/reference/homepage-reference-2026-09-17.svg` — **référence visuelle figée du layout, des couleurs, de la hiérarchie typographique et de l’allure générale**.
+
+![Référence visuelle figée](docs/reference/homepage-reference-2026-09-17.svg)
 
 ## Positionnement
 
