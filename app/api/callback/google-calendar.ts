@@ -170,6 +170,49 @@ export async function createPendingCalendarEvent(
   };
 }
 
+export async function attachHandledActionLink(eventId: string, actionUrl: string) {
+  const credentials = getCredentials();
+  if (!credentials) return;
+
+  const accessToken = await getAccessToken(credentials);
+  const currentResponse = await fetch(eventUrl(credentials.calendarId, eventId), {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      Accept: "application/json",
+    },
+    cache: "no-store",
+  });
+
+  if (!currentResponse.ok) {
+    throw new Error("google_calendar_event_read_failed");
+  }
+
+  const current = (await currentResponse.json()) as { description?: string };
+  const description = [
+    current.description || "",
+    "",
+    "Ouvrir / marquer cette demande comme traitée :",
+    actionUrl,
+    "",
+    "Ce lien fait passer l’événement d’orange à vert puis rouvre l’événement dans Google Agenda.",
+  ].join("\n");
+
+  const response = await fetch(`${eventUrl(credentials.calendarId, eventId)}?sendUpdates=none`, {
+    method: "PATCH",
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({ description }),
+    cache: "no-store",
+  });
+
+  if (!response.ok) {
+    throw new Error("google_calendar_action_link_update_failed");
+  }
+}
+
 export async function deleteCalendarEvent(eventId: string) {
   const credentials = getCredentials();
   if (!credentials) return;
