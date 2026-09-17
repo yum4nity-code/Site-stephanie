@@ -1,5 +1,11 @@
 import { NextResponse } from "next/server";
 
+import {
+  buildHandledActionUrl,
+  createPendingCalendarEvent,
+  deleteCalendarEvent,
+} from "./google-calendar";
+
 type CallbackPayload = {
   context?: string;
   name?: string;
@@ -185,6 +191,31 @@ export async function POST(request: Request) {
   const calendarUrl = buildCalendarUrl(request, callbackDate, callbackPeriod, context);
   const googleCalendarUrl = buildGoogleCalendarUrl(callbackDate, callbackPeriod, context);
 
+  let ownerCalendarEvent: { id: string; htmlLink: string | null } | null = null;
+  let ownerHandledActionUrl: string | null = null;
+
+  try {
+    ownerCalendarEvent = await createPendingCalendarEvent({
+      name,
+      company,
+      phone,
+      email,
+      context,
+      need,
+      callbackDate,
+      callbackPeriod,
+      message,
+    });
+
+    if (ownerCalendarEvent) {
+      ownerHandledActionUrl = buildHandledActionUrl(request, ownerCalendarEvent.id);
+    }
+  } catch {
+    // A Calendar outage or missing OAuth setup must never lose the lead.
+    ownerCalendarEvent = null;
+    ownerHandledActionUrl = null;
+  }
+
   const submission = {
     _subject: `Nouvelle demande de rappel — ${context}`,
     _template: "table",
@@ -199,8 +230,14 @@ export async function POST(request: Request) {
     "Créneau de préférence": callbackPeriod,
     Message: message || "Aucun message complémentaire",
     "Conseils RH & Paie (opt-in)": newsletter ? "OUI" : "NON",
-    "Google Agenda — demande à confirmer": googleCalendarUrl,
-    "Agenda universel (.ics) — demande à confirmer": calendarUrl,
+    "Google Agenda prospect — demande à confirmer": googleCalendarUrl,
+    "Agenda universel prospect (.ics) — demande à confirmer": calendarUrl,
+    "Agenda Stéphanie — état": ownerCalendarEvent
+      ? "ORANGE — nouvelle demande à traiter"
+      : "Non connecté ou événement non créé",
+    "Agenda Stéphanie — ouvrir l’événement": ownerCalendarEvent?.htmlLink || "Non disponible",
+    "Ouvrir / marquer traitée (orange → vert)":
+      ownerHandledActionUrl || "Non configuré — CALLBACK_STATUS_SECRET requis",
     Source: "Site Stéphanie Recorda — formulaire de rappel",
   };
 
@@ -219,6 +256,9 @@ export async function POST(request: Request) {
     );
 
     if (!formSubmitResponse.ok) {
+      if (ownerCalendarEvent) {
+        await deleteCalendarEvent(ownerCalendarEvent.id).catch(() => undefined);
+      }
       return NextResponse.json({ error: "delivery_failed" }, { status: 502 });
     }
 
@@ -241,8 +281,13 @@ export async function POST(request: Request) {
       googleCalendarUrl,
       emailConfirmationSent,
       newsletterSubscribed,
+      ownerCalendarCreated: Boolean(ownerCalendarEvent),
+      ownerCalendarHandledLinkReady: Boolean(ownerHandledActionUrl),
     });
   } catch {
+    if (ownerCalendarEvent) {
+      await deleteCalendarEvent(ownerCalendarEvent.id).catch(() => undefined);
+    }
     return NextResponse.json({ error: "delivery_unavailable" }, { status: 502 });
   }
 }
