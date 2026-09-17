@@ -83,6 +83,25 @@ const expertiseServices = [
   },
 ];
 
+const aboutProofs = [
+  {
+    title: "15 ans d’expérience RH",
+    detail: "Une pratique complète du cycle RH et de la paie.",
+  },
+  {
+    title: "11 ans dans l’Armée de Terre",
+    detail: "Expérience de terrain, organisation et gestion de situations exigeantes.",
+  },
+  {
+    title: "Spécialiste paie Silae",
+    detail: "Maîtrise opérationnelle de la paie et des obligations associées.",
+  },
+  {
+    title: "210 à 350 personnes",
+    detail: "Gestion RH d’unités de taille significative.",
+  },
+];
+
 export default function Home() {
   return (
     <main className="site-shell">
@@ -257,6 +276,46 @@ export default function Home() {
                 <p className="expertise-description">{service.description}</p>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="about-section" id="a-propos" aria-labelledby="about-title">
+        <div className="section-inner">
+          <div className="about-grid">
+            <div className="about-heading">
+              <p className="section-kicker">À propos</p>
+              <h2 className="section-title" id="about-title">
+                Une expertise terrain au service de vos ambitions
+              </h2>
+              <span className="section-accent" aria-hidden="true" />
+            </div>
+
+            <div className="about-copy">
+              <p>
+                Stéphanie dispose d’environ 15 ans d’expérience RH, dont 11 ans dans
+                l’Armée de Terre, avec la gestion de l’ensemble du cycle RH d’unités
+                allant d’environ 210 à 350 personnes.
+              </p>
+              <p>
+                Son parcours couvre l’administration du personnel, la paie, les carrières,
+                les entretiens annuels, les contrats et avenants, les situations
+                disciplinaires ou conflictuelles, l’organisation du travail et
+                l’accompagnement de dirigeants et de structures de formation.
+              </p>
+            </div>
+
+            <div className="about-proof" aria-label="Repères du parcours">
+              {aboutProofs.map((proof) => (
+                <div className="about-proof-item" key={proof.title}>
+                  <span className="about-proof-mark" aria-hidden="true">✓</span>
+                  <div>
+                    <strong>{proof.title}</strong>
+                    <span>{proof.detail}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
