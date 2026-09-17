@@ -10,7 +10,7 @@ Le projet est en **intégration technique V1** sur la branche :
 
 `v1-landing-2026-09-17`
 
-La branche `main` conserve la base de référence et de documentation validée. La branche V1 sert au chantier d’intégration.
+La branche `main` conserve la base de référence et de documentation validée. La branche V1 sert désormais au chantier d’intégration.
 
 Une preview complète de page d’accueil a été validée comme base visuelle. La référence durable du dépôt est figée dans :
 
@@ -27,7 +27,7 @@ Cette version web est optimisée en **600 × 750 px** et doit rester la référe
 
 ### Hero V1
 
-Le **hero est maintenant intégré** dans `app/page.tsx` et `app/globals.css` :
+Le **hero est intégré** dans `app/page.tsx` et `app/globals.css` :
 
 - header / identité Stéphanie Recorda ;
 - navigation desktop ;
@@ -42,6 +42,29 @@ Le **hero est maintenant intégré** dans `app/page.tsx` et `app/globals.css` :
 - responsive de base desktop / tablette / mobile.
 
 La citation du hero reste **à valider textuellement avec Stéphanie avant production**, conformément à `content/SITE_CONTENT.md`.
+
+### Bandeau de bénéfices
+
+Le **bandeau de réassurance à 4 bénéfices est maintenant intégré immédiatement sous le hero**.
+
+Principes respectés :
+
+- bandeau **non cliquable** ;
+- fond bleu très pâle conforme à la référence ;
+- icônes simples en trait dans des pastilles bleu clair ;
+- séparateurs fins entre les bénéfices ;
+- 4 colonnes sur grand écran ;
+- grille 2 × 2 sur tablette ;
+- empilement vertical sur mobile.
+
+Contenus intégrés :
+
+1. **Fiabilisez votre paie** — Des processus fiables et conformes.
+2. **Structurez vos démarches RH** — Des outils et méthodes adaptés à votre réalité.
+3. **Anticipez vos risques RH** — Une vision globale et préventive.
+4. **Flexible & humain** — Sur site ou à distance, selon vos besoins.
+
+Aucune interaction ni destination n’a été ajoutée à ces blocs, conformément à la décision UX validée.
 
 ## 2. Socle technique retenu
 
@@ -99,14 +122,9 @@ Les 3 cartes de forfaits doivent être **actionnables**. Approche V1 : bouton «
 
 ### Bandeau de bénéfices sous le hero
 
-Les 4 blocs sont un **bandeau de réassurance non cliquable** :
+Décision implémentée : les 4 blocs constituent un **bandeau de réassurance non cliquable**.
 
-- fiabiliser / sécuriser la paie ;
-- structurer les démarches RH ;
-- anticiper les risques RH ;
-- accompagnement flexible et humain.
-
-Piste préférée à tester : **« Fiabilisez votre paie »**.
+Le wording V1 utilise **« Fiabilisez votre paie »**.
 
 ### Mini-diagnostic d’orientation
 
@@ -136,12 +154,13 @@ Ne pas repartir de zéro. La preview impose :
 - branche `v1-landing-2026-09-17` remise au niveau de `main` ;
 - socle Next.js / React / TypeScript créé ;
 - copie du portrait ajoutée sous `public/images/` ;
-- **hero complet intégré avec navigation, contenu, CTA, coordonnées, portrait et responsive de base**.
+- hero complet intégré avec navigation, contenu, CTA, coordonnées, portrait et responsive de base ;
+- **bandeau de 4 bénéfices intégré, non cliquable et responsive**.
 
 ## 8. Ce qui n’est PAS encore fait
 
-- Le bandeau de 4 bénéfices sous le hero n’est pas encore codé.
-- Les sections offres, missions ponctuelles, à propos et CTA final ne sont pas encore codées.
+- Les cartes des offres récurrentes ne sont pas encore codées.
+- Les sections missions ponctuelles, à propos et CTA final ne sont pas encore codées.
 - Pas de mini-diagnostic implémenté.
 - Pas de formulaire de contact branché.
 - Pas de responsive complet testé sur appareils réels.
@@ -152,9 +171,9 @@ Ne pas repartir de zéro. La preview impose :
 
 ## 9. Prochaine étape recommandée
 
-Intégrer **uniquement le bandeau de 4 bénéfices situé immédiatement sous le hero**, conformément à la référence visuelle. Il doit rester non cliquable et responsive.
+Intégrer **uniquement la section des 3 offres forfaitaires récurrentes** conformément à la référence visuelle : titre de section, 3 cartes, prix, éléments clés et hiérarchie visuelle.
 
-Après cette étape, rendre compte avant d’attaquer les cartes d’offres.
+Ne pas encore coder le détail dépliable, le formulaire ou le mini-diagnostic dans cette étape. Après intégration des cartes, rendre compte avant de poursuivre.
 
 ## 10. Discipline de reprise
 
