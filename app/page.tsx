@@ -1,5 +1,42 @@
 import Image from "next/image";
 
+function PayrollIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 3 5 6v5c0 4.7 2.7 8 7 10 4.3-2 7-5.3 7-10V6l-7-3Z" />
+      <path d="m9 12 2 2 4-4" />
+    </svg>
+  );
+}
+
+function StructureIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M6 4h12v16H6z" />
+      <path d="M9 8h6M9 12h6M9 16h4" />
+    </svg>
+  );
+}
+
+function PreventionIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="8" />
+      <path d="m15 9-2 4-4 2 2-4 4-2Z" />
+    </svg>
+  );
+}
+
+function HumanIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="8" r="3" />
+      <path d="M6.5 19c.8-3.2 2.7-5 5.5-5s4.7 1.8 5.5 5" />
+      <path d="M4 12h2M18 12h2" />
+    </svg>
+  );
+}
+
 export default function Home() {
   return (
     <main className="site-shell">
@@ -84,6 +121,42 @@ export default function Home() {
               « Des ressources humaines plus humaines, au service de la performance durable. »
             </blockquote>
           </div>
+        </div>
+      </section>
+
+      <section className="benefits" aria-label="Les bénéfices de l’accompagnement">
+        <div className="benefits-inner" role="list">
+          <article className="benefit" role="listitem">
+            <span className="benefit-icon"><PayrollIcon /></span>
+            <div>
+              <h2>Fiabilisez votre paie</h2>
+              <p>Des processus fiables et conformes</p>
+            </div>
+          </article>
+
+          <article className="benefit" role="listitem">
+            <span className="benefit-icon"><StructureIcon /></span>
+            <div>
+              <h2>Structurez vos démarches RH</h2>
+              <p>Des outils et méthodes adaptés à votre réalité</p>
+            </div>
+          </article>
+
+          <article className="benefit" role="listitem">
+            <span className="benefit-icon"><PreventionIcon /></span>
+            <div>
+              <h2>Anticipez vos risques RH</h2>
+              <p>Une vision globale et préventive</p>
+            </div>
+          </article>
+
+          <article className="benefit" role="listitem">
+            <span className="benefit-icon"><HumanIcon /></span>
+            <div>
+              <h2>Flexible &amp; humain</h2>
+              <p>Sur site ou à distance, selon vos besoins</p>
+            </div>
+          </article>
         </div>
       </section>
     </main>
