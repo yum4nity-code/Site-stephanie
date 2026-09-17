@@ -1,3 +1,5 @@
+import { CallbackButton } from "./callback-form";
+
 export default function ContactCta() {
   return (
     <section className="contact-section" id="contact" aria-labelledby="contact-title">
@@ -28,12 +30,9 @@ export default function ContactCta() {
           </span>
         </div>
 
-        <a
-          className="button contact-cta"
-          href="mailto:stephanie.recorda1@gmail.com?subject=Prise%20de%20rendez-vous%20-%20Conseil%20RH%20%26%20Paie"
-        >
+        <CallbackButton className="button contact-cta">
           Prendre rendez-vous
-        </a>
+        </CallbackButton>
       </div>
     </section>
   );
