@@ -206,6 +206,49 @@ Coordonnées :
 
 ---
 
+# Demande de rappel intégrée
+
+Le CTA **« Prendre rendez-vous »** ne doit plus ouvrir directement un e-mail. Il ouvre un formulaire intégré intitulé **« Demander à être rappelé »**.
+
+Texte d’explication retenu :
+
+**« Indiquez vos coordonnées et votre créneau de préférence. Il s’agit d’une demande de rappel : Stéphanie vous recontacte pour confirmer l’échange. »**
+
+Champs :
+
+- nom et prénom — obligatoire ;
+- entreprise — facultatif ;
+- téléphone — obligatoire ;
+- e-mail — obligatoire ;
+- besoin principal — obligatoire ;
+- jour souhaité — obligatoire ;
+- créneau de préférence — obligatoire ;
+- message libre — facultatif.
+
+Créneaux de préférence :
+
+- **Matin** ;
+- **Pause déjeuner** ;
+- **Après-midi** ;
+- **Fin de journée** ;
+- **Je suis flexible**.
+
+Le site précise que le créneau est une **préférence de rappel et non une réservation automatique**.
+
+Consentement de contact obligatoire :
+
+**« J’accepte d’être recontacté(e) au sujet de cette demande. »**
+
+Opt-in séparé, facultatif et non précoché :
+
+**« Je souhaite recevoir ponctuellement les conseils RH & Paie de Stéphanie. Cette inscription est facultative et séparée de ma demande de rappel. »**
+
+En V1, ce consentement aux conseils RH & Paie est enregistré avec la demande. L’inscription automatique dans un outil newsletter n’est pas encore branchée.
+
+Les CTA des packs et missions ponctuelles ouvrent le même formulaire avec le sujet concerné prérempli.
+
+---
+
 # Mini-diagnostic d’orientation — base fonctionnelle
 
 Bouton envisagé : **Quelle offre me convient ?** ou **Trouver mon offre en 1 min**.
@@ -242,7 +285,9 @@ Résultat : proposer le pack le plus cohérent et expliquer brièvement pourquoi
 - citation du hero ;
 - statut / mentions légales ;
 - politique de confidentialité / cookies si nécessaire ;
+- information sur le prestataire technique utilisé pour recevoir les formulaires ;
+- activation définitive de la réception des formulaires ;
+- choix éventuel d’un outil newsletter pour automatiser l’opt-in ;
 - photo haute définition propre ;
-- outil de prise de rendez-vous ;
-- outil de formulaire ;
+- éventuel outil d’agenda si une réservation directe remplace plus tard le rappel ;
 - coordonnées finales.
