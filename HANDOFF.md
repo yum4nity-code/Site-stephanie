@@ -6,41 +6,46 @@ Ce document est le point de reprise obligatoire du projet. Il doit rester lisibl
 
 ## 1. État actuel
 
-Le projet est passé de la phase de cadrage / direction artistique au **démarrage de l’intégration technique V1** sur la branche :
+Le projet est en **intégration technique V1** sur la branche :
 
 `v1-landing-2026-09-17`
 
-La branche `main` conserve la base de référence et de documentation validée. La branche V1 sert désormais au chantier d’intégration.
+La branche `main` conserve la base de référence et de documentation validée. La branche V1 sert au chantier d’intégration.
 
 Une preview complète de page d’accueil a été validée comme base visuelle. La référence durable du dépôt est figée dans :
 
 `docs/reference/homepage-reference-2026-09-17.svg`
 
-Cette référence verrouille :
+Cette référence verrouille couleurs, hiérarchie, style des cartes, densité, proportions, placement du portrait et allure générale. Le détail des règles est dans `docs/DESIGN_REFERENCE.md`.
 
-- couleurs ;
-- typographie / hiérarchie ;
-- style de cartes ;
-- densité ;
-- proportions ;
-- placement du portrait ;
-- allure générale du site.
+Le **portrait professionnel de Stéphanie destiné à la V1 web est validé** et disponible dans :
 
-Le détail des règles est dans `docs/DESIGN_REFERENCE.md`.
+- `assets/images/stephanie-recorda-portrait-professionnel.webp` ;
+- `public/images/stephanie-recorda-portrait-professionnel.webp` pour l’intégration Next.js.
 
-Le **portrait professionnel de Stéphanie destiné à la V1 web est validé** et déposé dans :
+Cette version web est optimisée en **600 × 750 px** et doit rester la référence portrait de la V1 sauf nouvelle validation explicite.
 
-`assets/images/stephanie-recorda-portrait-professionnel.webp`
+### Hero V1
 
-Une copie directement exploitable par Next.js est également disponible dans :
+Le **hero est maintenant intégré** dans `app/page.tsx` et `app/globals.css` :
 
-`public/images/stephanie-recorda-portrait-professionnel.webp`
+- header / identité Stéphanie Recorda ;
+- navigation desktop ;
+- CTA « Prendre rendez-vous » ;
+- surtitre « Externaliser • Sécuriser • Avancer ensemble » ;
+- H1 de la référence validée ;
+- repères d’expérience / Silae ;
+- coordonnées cliquables téléphone et e-mail ;
+- double CTA ;
+- portrait professionnel validé ;
+- citation de direction artistique ;
+- responsive de base desktop / tablette / mobile.
 
-Cette version web est optimisée en **600 × 750 px**. Elle doit être utilisée comme portrait de référence pour l’intégration du hero, sauf nouvelle validation explicite.
+La citation du hero reste **à valider textuellement avec Stéphanie avant production**, conformément à `content/SITE_CONTENT.md`.
 
 ## 2. Socle technique retenu
 
-La V1 démarre sur :
+La V1 utilise :
 
 - **Next.js 16.3.5** ;
 - **React 19.3.0** ;
@@ -49,7 +54,7 @@ La V1 démarre sur :
 - Node.js **>= 20.9.0** ;
 - déploiement cible compatible Vercel.
 
-Fichiers techniques créés :
+Fichiers techniques principaux :
 
 - `package.json` ;
 - `next.config.mjs` ;
@@ -60,17 +65,15 @@ Fichiers techniques créés :
 - `app/page.tsx` ;
 - `app/globals.css`.
 
-Le socle reprend déjà les principales variables de couleur de la direction artistique afin d’éviter une dérive visuelle dès le départ.
-
 ## 3. Positionnement retenu
 
 Stéphanie Recorda est présentée comme consultante / prestataire **RH & Paie externalisée pour TPE et PME**, avec un positionnement professionnel, humain, accessible et orienté dirigeant.
 
-Le message central de la preview est :
+Message central :
 
 **« Expertise RH & Paie externalisée pour TPE et PME »**
 
-La zone d’intervention affichée est **Strasbourg & Bas-Rhin, sur site / à distance**.
+Zone affichée : **Strasbourg & Bas-Rhin, sur site / à distance**.
 
 ## 4. Offres retenues à ce stade
 
@@ -92,60 +95,37 @@ Source de vérité détaillée : `content/SITE_CONTENT.md`.
 
 ### Cartes des packs
 
-Les 3 cartes de forfaits doivent être **actionnables**. Elles ne doivent pas être de simples blocs décoratifs.
-
-Approche retenue pour une V1 légère :
-
-- bouton discret de type **« Voir le détail »** ;
-- le clic descend vers une section détaillée sur la même page ou ouvre un bloc dépliable ;
-- chaque détail explique inclusions, fonctionnement, cible et limites utiles ;
-- chaque détail termine par **« Échanger sur cette formule »** ;
-- le formulaire / contact doit idéalement récupérer l’offre choisie automatiquement.
-
-Le site peut donc rester **one-page** au lancement.
+Les 3 cartes de forfaits doivent être **actionnables**. Approche V1 : bouton « Voir le détail », ancre ou bloc dépliable, détail du périmètre puis CTA « Échanger sur cette formule ».
 
 ### Bandeau de bénéfices sous le hero
 
-Les 4 blocs sont des **promesses / bénéfices**, pas des offres ni une navigation.
+Les 4 blocs sont un **bandeau de réassurance non cliquable** :
 
-Ils doivent rester **non cliquables**.
-
-Les axes sont :
-
-- sécuriser / fiabiliser la paie ;
+- fiabiliser / sécuriser la paie ;
 - structurer les démarches RH ;
 - anticiper les risques RH ;
-- proposer un accompagnement flexible et humain.
+- accompagnement flexible et humain.
 
-Piste de wording à tester : remplacer **« Sécurisez votre paie »** par **« Fiabilisez votre paie »**, jugé plus précis et moins proche d’une promesse de garantie.
+Piste préférée à tester : **« Fiabilisez votre paie »**.
 
 ### Mini-diagnostic d’orientation
 
-Idée prioritaire : ajouter un CTA court du type :
-
-- **« Quelle offre me convient ? »**
-- ou **« Trouver mon offre en 1 min »**.
-
-Le mini-questionnaire doit orienter vers un pack sans donner l’impression d’un diagnostic juridique ou RH automatisé.
+Idée prioritaire conservée : CTA de type **« Quelle offre me convient ? »** / **« Trouver mon offre en 1 min »**. Il sera traité après la landing page principale.
 
 ## 6. Direction artistique verrouillée
 
-Ne pas repartir de zéro.
-
-La preview validée impose une base :
+Ne pas repartir de zéro. La preview impose :
 
 - fond blanc / gris très clair ;
 - bleu marine profond dominant ;
 - accents bleu clair désaturé ;
-- grands titres élégants ;
+- grands titres serif élégants ;
 - texte courant sans-serif très lisible ;
-- cartes fines, arrondies, sobres ;
+- cartes fines, sobres ;
 - portrait réaliste et chaleureux ;
 - beaucoup d’espace blanc ;
 - CTA marine contrasté ;
-- impression : cabinet / conseil premium mais accessible, pas « startup flashy ».
-
-Les valeurs de palette et le mapping typographique de départ sont consignés dans `docs/DESIGN_REFERENCE.md`.
+- impression cabinet / conseil premium mais accessible.
 
 ## 7. Ce qui a été fait le 17/09/2026
 
@@ -154,25 +134,27 @@ Les valeurs de palette et le mapping typographique de départ sont consignés da
 - contenu métier centralisé ;
 - portrait professionnel validé et ajouté au dépôt ;
 - branche `v1-landing-2026-09-17` remise au niveau de `main` ;
-- **socle Next.js / React / TypeScript créé sur la branche V1** ;
-- copie du portrait ajoutée sous `public/images/` pour l’intégration web.
+- socle Next.js / React / TypeScript créé ;
+- copie du portrait ajoutée sous `public/images/` ;
+- **hero complet intégré avec navigation, contenu, CTA, coordonnées, portrait et responsive de base**.
 
 ## 8. Ce qui n’est PAS encore fait
 
-- Le hero fidèle à la maquette n’est pas encore intégré.
-- Les sections bénéfices, offres, missions ponctuelles, à propos et CTA final ne sont pas encore codées.
+- Le bandeau de 4 bénéfices sous le hero n’est pas encore codé.
+- Les sections offres, missions ponctuelles, à propos et CTA final ne sont pas encore codées.
 - Pas de mini-diagnostic implémenté.
 - Pas de formulaire de contact branché.
 - Pas de responsive complet testé sur appareils réels.
 - Pas de SEO final / analytics / mentions légales finalisés.
 - Pas encore de build Vercel de validation pour cette branche.
+- La citation du hero reste à valider textuellement avec Stéphanie.
 - Les coordonnées et textes devront être relus avant mise en production.
 
 ## 9. Prochaine étape recommandée
 
-Intégrer **uniquement le hero** sur la branche V1 en reproduisant fidèlement la référence visuelle : navigation sobre, bloc texte, CTA, coordonnées, portrait validé et responsive de base.
+Intégrer **uniquement le bandeau de 4 bénéfices situé immédiatement sous le hero**, conformément à la référence visuelle. Il doit rester non cliquable et responsive.
 
-Après validation visuelle du hero, poursuivre section par section afin de limiter les régressions et de garder des étapes courtes et vérifiables.
+Après cette étape, rendre compte avant d’attaquer les cartes d’offres.
 
 ## 10. Discipline de reprise
 
@@ -180,7 +162,7 @@ Toute personne / IA reprenant ce projet doit :
 
 1. lire `AGENTS.md` ;
 2. lire ce handoff en entier ;
-3. vérifier `IDEAS_INBOX.md` pour les nouvelles propositions non encore triées ;
+3. vérifier `IDEAS_INBOX.md` ;
 4. vérifier l’état réel du dépôt avant d’agir ;
 5. ne pas contredire une décision documentée sans validation explicite ;
 6. mettre à jour ce fichier avant de terminer son intervention, sauf simple ajout d’idée dans l’inbox sans changement de décision.
