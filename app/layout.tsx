@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./expertise.css";
 
 export const metadata: Metadata = {
   title: "Stéphanie Recorda | Conseil RH & Paie",
