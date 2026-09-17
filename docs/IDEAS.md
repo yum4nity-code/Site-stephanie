@@ -25,7 +25,23 @@ Un consentement facultatif séparé permet d’indiquer : **« Je souhaite recev
 
 Les CTA contextuels des packs et des missions ponctuelles utilisent le même formulaire avec le sujet concerné prérempli.
 
-Pour la V1, le consentement newsletter est enregistré dans la demande mais **l’ajout automatique à une plateforme d’e-mailing n’est pas encore branché**. Un outil dédié (Brevo, Mailchimp ou équivalent) pourra être choisi plus tard si Stéphanie lance réellement une newsletter.
+Pour la V1, le consentement newsletter est enregistré dans la demande. Le raccord automatique à une liste Brevo est préparé dans le backend mais ne devient actif que lorsque les variables d’environnement nécessaires sont configurées.
+
+### Confirmation forte après envoi + agendas provisoires
+
+Après une soumission réussie, le formulaire est remplacé par un véritable écran de confirmation :
+
+- gros état de succès ;
+- récapitulatif du sujet, du jour, du créneau et du besoin ;
+- rappel explicite que le créneau reste **à confirmer** ;
+- bouton **« Ajouter à Google Agenda »** ;
+- bouton **« Autre agenda (.ics) »** pour Apple Calendar, Outlook et calendriers compatibles iCalendar.
+
+L’événement ajouté est volontairement une **demande de rappel à confirmer**, en journée entière et non bloquante, afin de ne pas présenter une préférence comme un rendez-vous déjà réservé.
+
+Le mail reçu par Stéphanie contient également les deux liens agenda afin qu’elle puisse conserver la demande dans son propre agenda sans créer artificiellement une réservation définitive.
+
+Le backend contient en plus un raccord optionnel Brevo pour envoyer automatiquement au prospect un e-mail de confirmation avec le même récapitulatif et les mêmes liens agenda. Ce mail n’est envoyé que si `BREVO_API_KEY` et `BREVO_SENDER_EMAIL` sont configurés. Sans ces variables, la demande principale continue d’être transmise à Stéphanie via FormSubmit et l’interface ne prétend pas qu’un e-mail automatique a été envoyé.
 
 ## Priorité haute
 
@@ -136,9 +152,11 @@ Ne pas inventer de logos clients ni de témoignages.
 
 ## Priorité basse / plus tard
 
-### 8. Prise de rendez-vous intégrée
+### 8. Véritable agenda synchronisé
 
-Le formulaire de rappel est maintenant intégré. Un **véritable agenda synchronisé** reste une évolution possible lorsque l’outil et les disponibilités seront choisis.
+Les liens **Google Agenda** et **.ics** pour conserver une demande « à confirmer » sont maintenant préparés et intégrés au parcours.
+
+Une vraie réservation synchronisée reste une évolution ultérieure : elle devra lire les disponibilités réelles de Stéphanie, créer un rendez-vous confirmé dans les deux calendriers et gérer les modifications / annulations. Tant que cet outil n’est pas choisi, le site ne doit pas faire croire qu’un créneau est réservé automatiquement.
 
 ### 9. FAQ
 
@@ -168,6 +186,6 @@ Questions candidates :
 - Wording final : « Sécurisez » ou « Fiabilisez » votre paie ?
 - Le mini-diagnostic est-il visible dès le hero, après les bénéfices ou au niveau des offres ?
 - Quel outil d’agenda synchronisé si Stéphanie veut passer du rappel à la réservation directe ?
-- Quel outil de newsletter si l’opt-in doit devenir un abonnement automatisé ?
+- Activer Brevo pour l’e-mail transactionnel et l’opt-in newsletter, ou choisir un autre prestataire avant production ?
 - Photo définitive haute résolution de Stéphanie à fournir.
 - Mentions légales / statut / données RGPD à finaliser avant production.
