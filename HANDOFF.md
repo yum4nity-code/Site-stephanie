@@ -8,11 +8,11 @@ Ce document est le point de reprise obligatoire du projet. Il doit rester lisibl
 
 Le projet est en **phase de cadrage / direction artistique**. Aucun site de production n’est encore implémenté dans ce dépôt.
 
-Une preview complète de page d’accueil a été validée comme base visuelle. Elle est figée dans :
+Une preview complète de page d’accueil a été validée comme base visuelle. La référence durable du dépôt est figée dans :
 
-`docs/reference/homepage-reference-2026-09-17.png`
+`docs/reference/homepage-reference-2026-09-17.svg`
 
-Cette image est la référence de :
+Cette référence verrouille :
 
 - couleurs ;
 - typographie / hiérarchie ;
@@ -123,9 +123,19 @@ La preview validée impose une base :
 - CTA marine contrasté ;
 - impression : cabinet / conseil premium mais accessible, pas « startup flashy ».
 
-Les valeurs CSS exactes ne sont pas encore figées ; elles doivent être dérivées proprement de la preview pendant l’intégration, puis reportées dans `docs/DESIGN_REFERENCE.md`.
+Les valeurs de palette et le mapping typographique de départ sont maintenant consignés dans `docs/DESIGN_REFERENCE.md`.
 
-## 6. Ce qui n’est PAS encore fait
+## 6. Ce qui a été déposé le 17/09/2026
+
+- `README.md` enrichi avec l’état, les offres, l’UX et les sources de vérité.
+- `AGENTS.md` créé avec protocole obligatoire de reprise et de mise à jour du handoff.
+- `HANDOFF.md` créé et rendu obligatoire à chaque intervention.
+- `docs/DESIGN_REFERENCE.md` créé avec palette, typographies, composants et règles de fidélité.
+- `docs/IDEAS.md` créé avec la liste d’idées discutées, dont le mini-diagnostic et les règles de clic des packs.
+- `content/SITE_CONTENT.md` créé avec les textes, tarifs et structure de contenu actuellement retenus.
+- `docs/reference/homepage-reference-2026-09-17.svg` créé comme référence visuelle figée du dépôt.
+
+## 7. Ce qui n’est PAS encore fait
 
 - Pas de stack technique choisie définitivement.
 - Pas d’intégration HTML / React / Next / autre dans le dépôt.
@@ -133,16 +143,16 @@ Les valeurs CSS exactes ne sont pas encore figées ; elles doivent être dériv�
 - Pas de formulaire de contact branché.
 - Pas de moteur de mini-diagnostic implémenté.
 - Pas de SEO / analytics / mentions légales finalisés.
-- Pas de photo source haute définition propre déposée pour Stéphanie ; la preview seule sert de référence actuelle.
+- Pas de photo source haute définition propre déposée pour Stéphanie ; la référence actuelle verrouille la composition mais utilise un emplacement de portrait générique.
 - Les coordonnées et textes devront être relus avant mise en production.
 
-## 7. Prochaine étape recommandée
+## 8. Prochaine étape recommandée
 
-Construire la **V1 de la landing page** en reproduisant fidèlement la preview de référence, sans inventer de nouvelles sections. Implémenter d’abord : hero, bandeau de bénéfices, offres récurrentes, missions ponctuelles, à propos, CTA final, puis seulement ensuite le mini-diagnostic.
+Construire la **V1 de la landing page** en reproduisant fidèlement la référence visuelle, sans inventer de nouvelles sections. Implémenter d’abord : hero, bandeau de bénéfices, offres récurrentes, missions ponctuelles, à propos, CTA final, puis seulement ensuite le mini-diagnostic.
 
 Avant mise en ligne : relecture complète des textes, validation des tarifs, coordonnées, mentions légales et photo définitive.
 
-## 8. Discipline de reprise
+## 9. Discipline de reprise
 
 Toute personne / IA reprenant ce projet doit :
 
