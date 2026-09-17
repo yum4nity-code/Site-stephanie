@@ -1,6 +1,7 @@
 "use client";
 
-import { FormEvent, ReactNode, useEffect, useRef, useState } from "react";
+import type { FormEvent, ReactNode } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type CallbackButtonProps = {
   children?: ReactNode;
@@ -114,6 +115,7 @@ export default function CallbackDialog() {
       callbackPeriod: String(formData.get("callbackPeriod") || ""),
       message: String(formData.get("message") || ""),
       newsletter: formData.get("newsletter") === "yes",
+      contactConsent: formData.get("contactConsent") === "yes",
       website: String(formData.get("website") || ""),
     };
 
@@ -247,32 +249,30 @@ export default function CallbackDialog() {
               <div className="callback-fields callback-fields-two">
                 <label>
                   <span>Nom et prénom *</span>
-                  <input name="name" autoComplete="name" required />
+                  <input name="name" autoComplete="name" maxLength={120} required />
                 </label>
                 <label>
                   <span>Entreprise</span>
-                  <input name="company" autoComplete="organization" />
+                  <input name="company" autoComplete="organization" maxLength={160} />
                 </label>
               </div>
 
               <div className="callback-fields callback-fields-two">
                 <label>
                   <span>Téléphone *</span>
-                  <input name="phone" type="tel" autoComplete="tel" required />
+                  <input name="phone" type="tel" autoComplete="tel" maxLength={60} required />
                 </label>
                 <label>
                   <span>E-mail *</span>
-                  <input name="email" type="email" autoComplete="email" required />
+                  <input name="email" type="email" autoComplete="email" maxLength={180} required />
                 </label>
               </div>
 
               <label>
                 <span>Votre besoin principal *</span>
                 <select name="need" required defaultValue="">
-                  <option value="" disabled>
-                    Choisir un besoin
-                  </option>
-                  <option>Paie & DSN</option>
+                  <option value="" disabled>Choisir un besoin</option>
+                  <option>Paie &amp; DSN</option>
                   <option>Administration RH</option>
                   <option>Paie + RH</option>
                   <option>Organisation / accompagnement dirigeant</option>
@@ -293,9 +293,7 @@ export default function CallbackDialog() {
                   <label>
                     <span>Créneau de préférence</span>
                     <select name="callbackPeriod" required defaultValue="">
-                      <option value="" disabled>
-                        Choisir un créneau
-                      </option>
+                      <option value="" disabled>Choisir un créneau</option>
                       <option>Matin</option>
                       <option>Pause déjeuner</option>
                       <option>Après-midi</option>
@@ -314,6 +312,7 @@ export default function CallbackDialog() {
                 <textarea
                   name="message"
                   rows={3}
+                  maxLength={1500}
                   placeholder="Ex. reprise d’un dossier paie, besoin urgent de structurer les RH…"
                 />
               </label>
@@ -327,7 +326,7 @@ export default function CallbackDialog() {
               </label>
 
               <label className="callback-check callback-check-required">
-                <input name="contactConsent" type="checkbox" required />
+                <input name="contactConsent" type="checkbox" value="yes" required />
                 <span>J’accepte d’être recontacté(e) au sujet de cette demande. *</span>
               </label>
 
@@ -340,7 +339,8 @@ export default function CallbackDialog() {
 
               <p className="callback-privacy">
                 Vos coordonnées sont utilisées pour traiter cette demande. Le consentement aux
-                conseils RH &amp; Paie n’est jamais coché par défaut.
+                conseils RH &amp; Paie n’est jamais coché par défaut.{" "}
+                <a href="/confidentialite">En savoir plus sur vos données.</a>
               </p>
 
               <div className="callback-actions">
