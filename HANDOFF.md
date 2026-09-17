@@ -10,172 +10,112 @@ Le projet est en **intégration technique V1** sur la branche :
 
 `v1-landing-2026-09-17`
 
-La branche `main` conserve la base de référence et de documentation validée. La branche V1 sert désormais au chantier d’intégration.
+La branche `main` conserve la base de référence et de documentation validée. La branche V1 sert au chantier d’intégration.
 
-Une preview complète de page d’accueil a été validée comme base visuelle. La référence durable du dépôt est figée dans :
+Référence visuelle figée :
 
 `docs/reference/homepage-reference-2026-09-17.svg`
 
-Cette référence verrouille couleurs, hiérarchie, style des cartes, densité, proportions, placement du portrait et allure générale. Le détail des règles est dans `docs/DESIGN_REFERENCE.md`.
+Règles visuelles détaillées :
 
-Le **portrait professionnel de Stéphanie destiné à la V1 web est validé** et disponible dans :
+`docs/DESIGN_REFERENCE.md`
+
+Portrait V1 validé :
 
 - `assets/images/stephanie-recorda-portrait-professionnel.webp` ;
-- `public/images/stephanie-recorda-portrait-professionnel.webp` pour l’intégration Next.js.
+- `public/images/stephanie-recorda-portrait-professionnel.webp` pour Next.js.
 
-Cette version web est optimisée en **600 × 750 px** et doit rester la référence portrait de la V1 sauf nouvelle validation explicite.
+## 2. Socle technique
 
-### Hero V1
+La V1 utilise :
 
-Le **hero est intégré** dans `app/page.tsx` et `app/globals.css` :
+- Next.js 16.3.5 ;
+- React 19.3.0 ;
+- TypeScript ;
+- App Router (`app/`) ;
+- Node.js >= 20.9.0 ;
+- déploiement cible compatible Vercel.
 
-- header / identité Stéphanie Recorda ;
-- navigation desktop ;
-- CTA « Prendre rendez-vous » ;
-- surtitre « Externaliser • Sécuriser • Avancer ensemble » ;
-- H1 de la référence validée ;
-- repères d’expérience / Silae ;
-- coordonnées cliquables téléphone et e-mail ;
-- double CTA ;
-- portrait professionnel validé ;
-- citation de direction artistique ;
-- responsive de base desktop / tablette / mobile.
+Fichiers principaux : `package.json`, `next.config.mjs`, `tsconfig.json`, `next-env.d.ts`, `.gitignore`, `app/layout.tsx`, `app/page.tsx`, `app/globals.css`.
 
-La citation du hero reste **à valider textuellement avec Stéphanie avant production**, conformément à `content/SITE_CONTENT.md`.
+## 3. Éléments déjà intégrés
+
+### Hero
+
+Le hero est intégré avec : identité Stéphanie Recorda, navigation desktop, CTA « Prendre rendez-vous », surtitre, H1, repères d’expertise, coordonnées cliquables, double CTA, portrait validé, citation de direction artistique et responsive de base.
+
+La citation du hero reste **à valider textuellement avec Stéphanie avant production** conformément à `content/SITE_CONTENT.md`.
 
 ### Bandeau de bénéfices
 
-Le **bandeau de réassurance à 4 bénéfices est maintenant intégré immédiatement sous le hero**.
-
-Principes respectés :
-
-- bandeau **non cliquable** ;
-- fond bleu très pâle conforme à la référence ;
-- icônes simples en trait dans des pastilles bleu clair ;
-- séparateurs fins entre les bénéfices ;
-- 4 colonnes sur grand écran ;
-- grille 2 × 2 sur tablette ;
-- empilement vertical sur mobile.
-
-Contenus intégrés :
+Le bandeau sous le hero est intégré et reste **non cliquable**. Il comprend :
 
 1. **Fiabilisez votre paie** — Des processus fiables et conformes.
 2. **Structurez vos démarches RH** — Des outils et méthodes adaptés à votre réalité.
 3. **Anticipez vos risques RH** — Une vision globale et préventive.
 4. **Flexible & humain** — Sur site ou à distance, selon vos besoins.
 
-Aucune interaction ni destination n’a été ajoutée à ces blocs, conformément à la décision UX validée.
+Responsive : 4 colonnes desktop, 2 × 2 tablette, 1 colonne mobile.
 
-## 2. Socle technique retenu
+### Offres forfaitaires récurrentes
 
-La V1 utilise :
+La section **« Offres forfaitaires récurrentes » est maintenant intégrée** dans `app/page.tsx` et `app/globals.css`.
 
-- **Next.js 16.3.5** ;
-- **React 19.3.0** ;
-- **TypeScript** ;
-- **App Router** (`app/`) ;
-- Node.js **>= 20.9.0** ;
-- déploiement cible compatible Vercel.
+Contenu V1 affiché :
 
-Fichiers techniques principaux :
+1. **Pack TPE Sérénité** — 5 à 10 salariés — **690 € HT / mois** — Paie & DSN, Administration RH, Conseil dirigeant.
+2. **Pack PME Performance** — 11 à 25 salariés — **1 190 € HT / mois** — Gestion globale RH & Paie, Suivi des talents, Présence terrain.
+3. **Pack Sur-Mesure** — +25 salariés / multi-sites — **Sur devis** — Volume adapté, Accompagnement évolutif, Présence selon les besoins.
 
-- `package.json` ;
-- `next.config.mjs` ;
-- `tsconfig.json` ;
-- `next-env.d.ts` ;
-- `.gitignore` ;
-- `app/layout.tsx` ;
-- `app/page.tsx` ;
-- `app/globals.css`.
+Principes de design respectés :
 
-## 3. Positionnement retenu
+- 3 cartes en grille desktop ;
+- Pack PME visuellement mis en avant avec fond bleu très pâle et badge discret « Le plus complet » ;
+- prix fortement hiérarchisés ;
+- listes courtes avec coches ;
+- bordures fines, rayon modéré et ombre légère ;
+- empilement vertical sur tablette / mobile.
+
+**Important :** les boutons « Voir le détail », les accordions, le formulaire, le préremplissage de l’offre et le mini-diagnostic n’ont volontairement pas été ajoutés à cette étape.
+
+## 4. Positionnement et contenu de référence
 
 Stéphanie Recorda est présentée comme consultante / prestataire **RH & Paie externalisée pour TPE et PME**, avec un positionnement professionnel, humain, accessible et orienté dirigeant.
 
-Message central :
-
-**« Expertise RH & Paie externalisée pour TPE et PME »**
+Message central : **« Expertise RH & Paie externalisée pour TPE et PME »**.
 
 Zone affichée : **Strasbourg & Bas-Rhin, sur site / à distance**.
 
-## 4. Offres retenues à ce stade
+Source de vérité métier et tarifaire : `content/SITE_CONTENT.md`.
 
-### Forfaits récurrents
+## 5. Décisions UX à conserver
 
-1. **Pack TPE Sérénité** — 5 à 10 salariés — **690 € HT / mois**.
-2. **Pack PME Performance** — 11 à 25 salariés — **1 190 € HT / mois**.
-3. **Pack Sur-Mesure** — +25 salariés / multi-sites — **sur devis**.
+- Les 4 bénéfices sous le hero sont de la réassurance et restent non cliquables.
+- Les 3 cartes d’offres doivent à terme être actionnables : bouton « Voir le détail », ancre ou bloc dépliable, détail utile, puis CTA « Échanger sur cette formule ».
+- Le mini-diagnostic « Quelle offre me convient ? » / « Trouver mon offre en 1 min » reste une idée prioritaire mais sera traité après la landing page principale.
+- Ne pas repartir de zéro sur la direction artistique : marine / blanc / bleu pâle, titres serif, texte sans-serif, beaucoup d’espace blanc, impression cabinet premium accessible.
 
-### Missions ponctuelles
+## 6. Ce qui reste à faire
 
-1. **Diagnostic RH & Organisation du Travail** — **350 à 400 € HT / jour**.
-2. **Audit Qualiopi & Conformité CFA / OF** — **400 € HT / jour**.
-3. **Sous-traitance Paie (cabinets comptables)** — **22 à 28 € HT / bulletin**.
+- intégrer les missions ponctuelles / expertise ;
+- intégrer la section À propos ;
+- intégrer le CTA final / contact ;
+- ajouter ensuite les détails actionnables des packs ;
+- implémenter éventuellement le mini-diagnostic ;
+- brancher le formulaire / prise de rendez-vous ;
+- tester le responsive sur appareils réels ;
+- finaliser SEO / analytics / mentions légales ;
+- effectuer un build / déploiement de validation ;
+- relire coordonnées, textes et tarifs avant production ;
+- faire valider la citation du hero par Stéphanie.
 
-Source de vérité détaillée : `content/SITE_CONTENT.md`.
+## 7. Prochaine étape recommandée
 
-## 5. Décisions UX prises
+Intégrer **uniquement la section « Prestations ponctuelles & missions d’expertise »** conformément à la référence visuelle, avec les 3 cartes métier et leurs tarifs actuels, sans formulaire ni logique supplémentaire.
 
-### Cartes des packs
+Après cette étape, rendre compte avant de poursuivre.
 
-Les 3 cartes de forfaits doivent être **actionnables**. Approche V1 : bouton « Voir le détail », ancre ou bloc dépliable, détail du périmètre puis CTA « Échanger sur cette formule ».
-
-### Bandeau de bénéfices sous le hero
-
-Décision implémentée : les 4 blocs constituent un **bandeau de réassurance non cliquable**.
-
-Le wording V1 utilise **« Fiabilisez votre paie »**.
-
-### Mini-diagnostic d’orientation
-
-Idée prioritaire conservée : CTA de type **« Quelle offre me convient ? »** / **« Trouver mon offre en 1 min »**. Il sera traité après la landing page principale.
-
-## 6. Direction artistique verrouillée
-
-Ne pas repartir de zéro. La preview impose :
-
-- fond blanc / gris très clair ;
-- bleu marine profond dominant ;
-- accents bleu clair désaturé ;
-- grands titres serif élégants ;
-- texte courant sans-serif très lisible ;
-- cartes fines, sobres ;
-- portrait réaliste et chaleureux ;
-- beaucoup d’espace blanc ;
-- CTA marine contrasté ;
-- impression cabinet / conseil premium mais accessible.
-
-## 7. Ce qui a été fait le 17/09/2026
-
-- documentation projet et protocole de continuité créés ;
-- direction visuelle figée ;
-- contenu métier centralisé ;
-- portrait professionnel validé et ajouté au dépôt ;
-- branche `v1-landing-2026-09-17` remise au niveau de `main` ;
-- socle Next.js / React / TypeScript créé ;
-- copie du portrait ajoutée sous `public/images/` ;
-- hero complet intégré avec navigation, contenu, CTA, coordonnées, portrait et responsive de base ;
-- **bandeau de 4 bénéfices intégré, non cliquable et responsive**.
-
-## 8. Ce qui n’est PAS encore fait
-
-- Les cartes des offres récurrentes ne sont pas encore codées.
-- Les sections missions ponctuelles, à propos et CTA final ne sont pas encore codées.
-- Pas de mini-diagnostic implémenté.
-- Pas de formulaire de contact branché.
-- Pas de responsive complet testé sur appareils réels.
-- Pas de SEO final / analytics / mentions légales finalisés.
-- Pas encore de build Vercel de validation pour cette branche.
-- La citation du hero reste à valider textuellement avec Stéphanie.
-- Les coordonnées et textes devront être relus avant mise en production.
-
-## 9. Prochaine étape recommandée
-
-Intégrer **uniquement la section des 3 offres forfaitaires récurrentes** conformément à la référence visuelle : titre de section, 3 cartes, prix, éléments clés et hiérarchie visuelle.
-
-Ne pas encore coder le détail dépliable, le formulaire ou le mini-diagnostic dans cette étape. Après intégration des cartes, rendre compte avant de poursuivre.
-
-## 10. Discipline de reprise
+## 8. Discipline de reprise
 
 Toute personne / IA reprenant ce projet doit :
 
