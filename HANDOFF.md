@@ -146,15 +146,13 @@ L’opt-in newsletter est actuellement **collecté et transmis avec la demande**
 
 `app/api/callback/route.ts` valide les champs côté serveur, inclut un honeypot anti-bot puis transmet la demande à **FormSubmit** vers `stephanie.recorda1@gmail.com`.
 
-Important avant usage réel : **FormSubmit demande une confirmation de l’adresse de destination lors de la première soumission.** La première demande de test doit donc être envoyée volontairement, puis Stéphanie doit valider l’e-mail d’activation reçu. Cette activation n’a pas été déclenchée automatiquement pendant cette intervention afin de ne pas envoyer d’e-mail externe sans action explicite de l’utilisateur.
+Important avant usage réel : **FormSubmit demande une confirmation de l’adresse de destination lors de la première soumission.** La première demande de test doit donc être envoyée volontairement, puis Stéphanie doit valider l’e-mail d’activation reçu.
 
 La politique de confidentialité / les mentions RGPD devront signaler le traitement des données du formulaire et le prestataire utilisé, ou ce prestataire devra être remplacé avant production si un autre choix est fait.
 
 ## 5. Validation technique
 
-Les validations précédentes de la landing étaient réussies.
-
-Après l’ajout du formulaire de rappel, une nouvelle validation complète a été lancée sous Node.js 22 :
+Après l’ajout du formulaire de rappel, une validation complète a été exécutée sous Node.js 22 :
 
 - installation des dépendances : **succès** ;
 - `npm run typecheck` : **succès** ;
@@ -164,19 +162,41 @@ Le workflow GitHub Actions utilisé pour ce contrôle était temporaire et a ét
 
 Aucune erreur TypeScript ni erreur de build Next.js n’a été détectée.
 
-## 6. Validation visuelle précédente
+## 6. Previews et validation visuelle
 
-Preview V2 post-corrections mobile :
-
-`https://stephanie-recorda-rh-preview-v2-izgwpzqvm-guardian13.vercel.app`
-
-Le lien de partage temporaire associé expirait le 18/09/2026.
+### Preview V2 — hiérarchie mobile
 
 La preview V2 a validé : visage visible, citation absente sur mobile, hero plus court, offres immédiatement après le portrait, accordions tactiles et CTA lisibles.
 
-Cette preview **ne contient pas encore le nouveau formulaire de rappel de l’étape 13**.
+### Étape 14 — Preview V3 du formulaire de rappel
 
-## 7. État du chantier après étape 13
+Une preview V3 dédiée à la validation du parcours de rappel a été créée sur Vercel :
+
+`https://stephanie-recorda-rh-preview-v3.vercel.app`
+
+Projet Vercel : `prj_lbM8aXYbYGF6u5LewkLJrQj4Jhrt`  
+Déploiement contrôlé : `dpl_4VuGd2SALNfkRoHuXGgFjh1DLmKW`
+
+Le domaine stable a été contrôlé et répond **HTTP 200 OK**.
+
+Cette V3 est volontairement une **preview statique d’interaction et de validation visuelle**. Elle reproduit le parcours mobile actuel, les CTA contextuels et le formulaire de rappel afin de permettre un contrôle facile sur téléphone. Elle **ne remplace pas** l’application Next.js du dépôt : la source réelle reste sur la branche V1 avec `app/callback-form.tsx` et l’endpoint `/api/callback`.
+
+La preview V3 permet de vérifier :
+
+- ouverture et fermeture de la fenêtre « Demander à être rappelé » ;
+- nom, entreprise, téléphone, e-mail et besoin principal ;
+- jour souhaité et créneau de préférence ;
+- message facultatif ;
+- consentement de rappel obligatoire ;
+- opt-in conseils RH & Paie séparé et **non précoché** ;
+- reprise du contexte lorsqu’un CTA d’offre est utilisé ;
+- responsive du formulaire en une colonne sur mobile.
+
+Aucune soumission de formulaire n’a été effectuée pendant cette étape. L’activation FormSubmit n’a donc pas été déclenchée.
+
+Le contrôle automatisé a vérifié le déploiement et la structure responsive. Le dernier contrôle visuel doit être fait sur un téléphone réel via la V3 avant d’envoyer une première demande.
+
+## 7. État du chantier après étape 14
 
 La landing dispose maintenant de :
 
@@ -193,12 +213,13 @@ La landing dispose maintenant de :
 11. contexte d’offre / mission prérempli ;
 12. opt-in facultatif aux conseils RH & Paie ;
 13. endpoint serveur de transmission ;
-14. typecheck et build réussis après cette évolution.
+14. typecheck et build réussis ;
+15. preview V3 du parcours de rappel disponible et répondant en HTTP 200.
 
 ## 8. Points restant ouverts
 
-- faire un premier test volontaire du formulaire et confirmer l’adresse FormSubmit dans la boîte de Stéphanie ;
-- créer une nouvelle preview visuelle incluant réellement le formulaire modal et contrôler son ergonomie mobile ;
+- faire le contrôle utilisateur de la V3 sur téléphone réel ;
+- effectuer ensuite un **premier test volontaire du formulaire** et confirmer l’adresse FormSubmit dans la boîte de Stéphanie ;
 - décider si l’opt-in newsletter doit rester un simple consentement transmis à Stéphanie ou être connecté à Brevo / Mailchimp / autre ;
 - éventuellement connecter plus tard un véritable agenda synchronisé ;
 - implémenter éventuellement le mini-diagnostic « Quelle offre me convient ? » ;
@@ -208,9 +229,9 @@ La landing dispose maintenant de :
 
 ## 9. Prochaine étape recommandée
 
-Créer une **preview V3 du vrai état post-formulaire** et contrôler sur mobile : ouverture / fermeture de la fenêtre, confort des champs, choix de date / créneau, opt-in non précoché et CTA contextuels.
+Ouvrir la **preview V3 sur téléphone réel** et vérifier le confort du formulaire.
 
-Ensuite, avec accord explicite, effectuer **une soumission de test** afin que Stéphanie reçoive et confirme l’activation FormSubmit.
+Après validation utilisateur explicite, effectuer **une seule soumission de test** avec des données de test afin de déclencher l’e-mail d’activation FormSubmit. Stéphanie devra alors confirmer cette activation dans sa boîte mail avant de vérifier la réception d’une demande réelle.
 
 ## 10. Discipline de reprise
 
