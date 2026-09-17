@@ -18,11 +18,31 @@ type CallbackPayload = {
   callbackPeriod?: string;
   message?: string;
   newsletter?: boolean;
+  contactConsent?: boolean;
   website?: string;
 };
 
 const DESTINATION_EMAIL = "stephanie.recorda1@gmail.com";
 const DESTINATION_NAME = "Stéphanie Recorda";
+
+const ALLOWED_NEEDS = new Set([
+  "Paie & DSN",
+  "Administration RH",
+  "Paie + RH",
+  "Organisation / accompagnement dirigeant",
+  "Diagnostic RH",
+  "Audit Qualiopi / CFA / OF",
+  "Sous-traitance paie",
+  "Autre / à préciser",
+]);
+
+const ALLOWED_PERIODS = new Set([
+  "Matin",
+  "Pause déjeuner",
+  "Après-midi",
+  "Fin de journée",
+  "Je suis flexible",
+]);
 
 function clean(value: unknown, maxLength = 500) {
   return String(value ?? "").trim().slice(0, maxLength);
@@ -45,6 +65,28 @@ function nextDate(value: string) {
   const date = new Date(`${value}T00:00:00Z`);
   date.setUTCDate(date.getUTCDate() + 1);
   return date.toISOString().slice(0, 10);
+}
+
+function isValidCallbackDate(value: string) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+  const date = new Date(`${value}T00:00:00Z`);
+  if (Number.isNaN(date.getTime()) || date.toISOString().slice(0, 10) !== value) return false;
+
+  const now = new Date();
+  const earliest = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() - 1));
+  const latest = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + 366));
+  return date >= earliest && date <= latest;
+}
+
+function isAllowedOrigin(request: Request) {
+  const origin = request.headers.get("origin");
+  if (!origin) return true;
+
+  try {
+    return new URL(origin).origin === new URL(request.url).origin;
+  } catch {
+    return false;
+  }
 }
 
 function buildGoogleCalendarUrl(callbackDate: string, callbackPeriod: string, context: string) {
@@ -141,11 +183,7 @@ async function subscribeBrevoContact(email: string, newsletter: boolean) {
       "api-key": apiKey,
       Accept: "application/json",
     },
-    body: JSON.stringify({
-      email,
-      listIds: [listId],
-      updateEnabled: true,
-    }),
+    body: JSON.stringify({ email, listIds: [listId], updateEnabled: true }),
     cache: "no-store",
   });
 
@@ -153,15 +191,21 @@ async function subscribeBrevoContact(email: string, newsletter: boolean) {
 }
 
 export async function POST(request: Request) {
-  let payload: CallbackPayload;
+  if (!request.headers.get("content-type")?.toLowerCase().startsWith("application/json")) {
+    return NextResponse.json({ error: "unsupported_content_type" }, { status: 415 });
+  }
 
+  if (!isAllowedOrigin(request)) {
+    return NextResponse.json({ error: "invalid_origin" }, { status: 403 });
+  }
+
+  let payload: CallbackPayload;
   try {
     payload = (await request.json()) as CallbackPayload;
   } catch {
     return NextResponse.json({ error: "invalid_json" }, { status: 400 });
   }
 
-  // Honeypot: silently accept bot submissions without forwarding them.
   if (clean(payload.website, 100)) {
     return NextResponse.json({ ok: true });
   }
@@ -176,8 +220,9 @@ export async function POST(request: Request) {
   const context = clean(payload.context, 200) || "Prise de rendez-vous";
   const message = clean(payload.message, 1500);
   const newsletter = Boolean(payload.newsletter);
+  const contactConsent = payload.contactConsent === true;
 
-  if (!name || !phone || !email || !need || !callbackDate || !callbackPeriod) {
+  if (!name || !phone || !email || !need || !callbackDate || !callbackPeriod || !contactConsent) {
     return NextResponse.json({ error: "missing_fields" }, { status: 400 });
   }
 
@@ -185,7 +230,11 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "invalid_email" }, { status: 400 });
   }
 
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(callbackDate)) {
+  if (!ALLOWED_NEEDS.has(need) || !ALLOWED_PERIODS.has(callbackPeriod)) {
+    return NextResponse.json({ error: "invalid_selection" }, { status: 400 });
+  }
+
+  if (!isValidCallbackDate(callbackDate)) {
     return NextResponse.json({ error: "invalid_date" }, { status: 400 });
   }
 
@@ -217,7 +266,6 @@ export async function POST(request: Request) {
       }
     }
   } catch {
-    // A Calendar outage or missing OAuth setup must never lose the lead.
     ownerCalendarEvent = null;
     ownerHandledActionUrl = null;
   }
@@ -235,6 +283,7 @@ export async function POST(request: Request) {
     "Jour souhaité": callbackDate,
     "Créneau de préférence": callbackPeriod,
     Message: message || "Aucun message complémentaire",
+    "Consentement au rappel": "OUI",
     "Conseils RH & Paie (opt-in)": newsletter ? "OUI" : "NON",
     "Google Agenda prospect — demande à confirmer": googleCalendarUrl,
     "Agenda universel prospect (.ics) — demande à confirmer": calendarUrl,
@@ -248,18 +297,12 @@ export async function POST(request: Request) {
   };
 
   try {
-    const formSubmitResponse = await fetch(
-      `https://formsubmit.co/ajax/${DESTINATION_EMAIL}`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(submission),
-        cache: "no-store",
-      },
-    );
+    const formSubmitResponse = await fetch(`https://formsubmit.co/ajax/${DESTINATION_EMAIL}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify(submission),
+      cache: "no-store",
+    });
 
     if (!formSubmitResponse.ok) {
       if (ownerCalendarEvent) {
