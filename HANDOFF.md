@@ -34,83 +34,68 @@ La V1 utilise :
 - TypeScript ;
 - App Router (`app/`) ;
 - Node.js >= 20.9.0 ;
-- déploiement cible compatible Vercel.
+- cible de déploiement compatible Vercel.
 
-Fichiers principaux : `package.json`, `next.config.mjs`, `tsconfig.json`, `next-env.d.ts`, `.gitignore`, `app/layout.tsx`, `app/page.tsx`, `app/globals.css`.
+Fichiers / composants principaux :
 
-Fichiers / composants dédiés :
-
+- `app/page.tsx` — landing ;
+- `app/globals.css` — style principal ;
 - `app/expertise.css` — prestations ponctuelles ;
-- `app/about.css` — section À propos ;
+- `app/about.css` — À propos ;
 - `app/contact.css` — CTA final ;
-- `app/conversion.css` — interactions des offres et hiérarchie mobile ;
-- `app/callback-form.tsx` — formulaire modal de demande de rappel ;
-- `app/callback-form.css` — styles du formulaire ;
-- `app/api/callback/route.ts` — endpoint serveur de réception / transmission des demandes ;
+- `app/conversion.css` — détails des offres et hiérarchie mobile ;
+- `app/callback-form.tsx` — formulaire modal + écran de succès ;
+- `app/callback-form.css` — styles du formulaire et de la confirmation ;
+- `app/api/callback/route.ts` — réception / transmission des demandes + liens agenda + raccord e-mail optionnel ;
+- `app/api/callback/calendar/route.ts` — export iCalendar `.ics` provisoire ;
 - `app/contact-cta.tsx` — bloc final de contact.
 
-## 3. Éléments intégrés
+## 3. Landing intégrée
 
 ### Hero
 
 Le hero est intégré avec identité Stéphanie Recorda, navigation, surtitre, H1, repères d’expertise, coordonnées cliquables, CTA, portrait validé et responsive.
 
-Sur mobile : hero compact, citation masquée, e-mail masqué dans le hero et priorité donnée au CTA vers les offres. Le portrait est recadré pour garder le visage entièrement visible.
+Sur mobile : hero compact, citation masquée, e-mail masqué dans le hero et priorité donnée à l’accès rapide aux offres. Le portrait est recadré pour garder le visage entièrement visible.
 
-La citation reste à valider textuellement avec Stéphanie avant production.
+La citation du hero reste à valider textuellement avec Stéphanie avant production.
 
-### Bandeau de bénéfices
+### Offres
 
-Le bandeau reste **non cliquable** :
+Les trois forfaits sont intégrés et détaillables :
+
+1. **Pack TPE Sérénité** — 5 à 10 salariés — **690 € HT / mois** ;
+2. **Pack PME Performance** — 11 à 25 salariés — **1 190 € HT / mois** ;
+3. **Pack Sur-Mesure** — +25 salariés / multi-sites — **Sur devis**.
+
+Chaque carte possède un `details/summary` **« Voir le détail »** puis un CTA contextuel qui ouvre le formulaire de rappel avec le nom de l’offre prérempli.
+
+### Prestations ponctuelles
+
+Trois missions sont intégrées et actionnables :
+
+1. Diagnostic RH & Organisation du Travail — **350 à 400 € HT / jour** ;
+2. Audit Qualiopi & Conformité CFA / OF — **400 € HT / jour** ;
+3. Sous-traitance Paie — **22 à 28 € HT / bulletin**.
+
+### Bandeau bénéfices
+
+Le bandeau reste **non cliquable** et arrive après les offres sur mobile :
 
 1. Fiabilisez votre paie ;
 2. Structurez vos démarches RH ;
 3. Anticipez vos risques RH ;
 4. Flexible & humain.
 
-Sur mobile, il arrive après les offres afin de réduire le temps de scroll avant les produits.
-
-### Offres forfaitaires
-
-Les trois offres sont intégrées :
-
-1. **Pack TPE Sérénité** — 5 à 10 salariés — **690 € HT / mois** ;
-2. **Pack PME Performance** — 11 à 25 salariés — **1 190 € HT / mois** ;
-3. **Pack Sur-Mesure** — +25 salariés / multi-sites — **Sur devis**.
-
-Chaque carte dispose d’un **« Voir le détail »** natif via `<details>` / `<summary>`.
-
-Les CTA **« Échanger sur cette formule »** et **« Demander une estimation »** n’ouvrent plus un e-mail : ils ouvrent désormais le formulaire de rappel avec le nom de l’offre prérempli comme contexte.
-
-### Prestations ponctuelles
-
-Les trois missions sont intégrées et actionnables :
-
-1. Diagnostic RH & Organisation du Travail — **350 à 400 € HT / jour** ;
-2. Audit Qualiopi & Conformité CFA / OF — **400 € HT / jour** ;
-3. Sous-traitance Paie — **22 à 28 € HT / bulletin**.
-
-Chaque CTA de mission ouvre le même formulaire de rappel avec la mission concernée comme contexte.
-
 ### À propos
 
-La section est intégrée avec les repères documentés : environ 15 ans d’expérience RH, 11 ans dans l’Armée de Terre, spécialiste paie Silae, gestion RH d’unités d’environ 210 à 350 personnes.
+La section reprend les éléments documentés : environ 15 ans d’expérience RH, 11 ans dans l’Armée de Terre, spécialiste paie Silae, expérience de gestion RH d’unités d’environ 210 à 350 personnes.
 
-Le texte biographique reste à valider avant production.
+La biographie reste à relire avec Stéphanie avant production.
 
-### CTA final / contact
+## 4. Demande de rappel
 
-Le bloc final de contact affiche téléphone, e-mail, zone d’intervention et bouton **« Prendre rendez-vous »**.
-
-Le bouton ouvre maintenant le formulaire de rappel intégré au lieu d’un `mailto:`.
-
-## 4. Demande de rappel — étape 13
-
-Décision utilisateur : remplacer l’ouverture directe d’un e-mail par un parcours plus professionnel de demande de rappel avec créneau de préférence et opt-in facultatif aux contenus RH & Paie.
-
-### Parcours implémenté
-
-Les CTA « Prendre rendez-vous » ouvrent une fenêtre intégrée **« Demander à être rappelé »**.
+Les CTA **« Prendre rendez-vous »** et les CTA contextuels des offres / missions ouvrent une fenêtre intégrée **« Demander à être rappelé »**.
 
 Champs :
 
@@ -123,115 +108,136 @@ Champs :
 - créneau de préférence — obligatoire ;
 - message libre — facultatif.
 
-Créneaux proposés sans promettre une disponibilité horaire précise :
+Créneaux : matin, pause déjeuner, après-midi, fin de journée, flexible.
 
-- matin ;
-- pause déjeuner ;
-- après-midi ;
-- fin de journée ;
-- flexible.
+Le site indique explicitement qu’il s’agit d’une **préférence de rappel et non d’une réservation automatique**.
 
-Le formulaire précise explicitement qu’il s’agit d’une **préférence de rappel et non d’une réservation automatique d’agenda**.
+Consentements :
 
-### Consentements
+- consentement de contact obligatoire ;
+- opt-in conseils RH & Paie facultatif, séparé et **non précoché**.
 
-Le formulaire contient :
+`app/api/callback/route.ts` valide les champs, utilise un honeypot et transmet la demande principale à **FormSubmit** vers `stephanie.recorda1@gmail.com`.
 
-- consentement obligatoire pour être recontacté au sujet de la demande ;
-- opt-in **facultatif, séparé et non précoché** : « Je souhaite recevoir ponctuellement les conseils RH & Paie de Stéphanie ».
+FormSubmit exige une activation de l’adresse de destination. Une première demande a été envoyée manuellement par l’utilisateur depuis la preview ; ne pas considérer l’activation comme terminée tant que Stéphanie n’a pas confirmé l’e-mail reçu.
 
-L’opt-in newsletter est actuellement **collecté et transmis avec la demande**, mais aucun outil newsletter n’est encore connecté pour ajouter automatiquement le contact à une liste.
+## 5. Étape 15 — confirmation forte + agendas provisoires
 
-### Réception technique des demandes
+Après retour utilisateur sur la preview V3, décision prise : la validation visuelle précédente était trop discrète et donnait l’impression que rien ne s’était réellement passé.
 
-`app/api/callback/route.ts` valide les champs côté serveur, inclut un honeypot anti-bot puis transmet la demande à **FormSubmit** vers `stephanie.recorda1@gmail.com`.
+### Nouvel écran de succès
 
-Important avant usage réel : **FormSubmit demande une confirmation de l’adresse de destination lors de la première soumission.** La première demande de test doit donc être envoyée volontairement, puis Stéphanie doit valider l’e-mail d’activation reçu.
+Après envoi réussi, l’ancien titre **« Demander à être rappelé »** et le formulaire disparaissent entièrement. Ils sont remplacés par un écran dédié comprenant :
 
-La politique de confidentialité / les mentions RGPD devront signaler le traitement des données du formulaire et le prestataire utilisé, ou ce prestataire devra être remplacé avant production si un autre choix est fait.
+- grand ✓ de confirmation ;
+- surtitre **« Demande envoyée »** ;
+- titre **« Votre demande est bien partie. »** ;
+- explication claire du prochain événement ;
+- récapitulatif du sujet, du jour, du créneau et du besoin ;
+- indication de l’adresse e-mail qui servira à la confirmation ;
+- accès aux agendas ;
+- bouton de fermeture.
 
-## 5. Validation technique
+### Agenda côté prospect
 
-Après l’ajout du formulaire de rappel, une validation complète a été exécutée sous Node.js 22 :
+Deux sorties sont maintenant préparées :
+
+- **« Ajouter à Google Agenda »** ;
+- **« Autre agenda (.ics) »** pour Apple Calendar, Outlook et autres outils compatibles iCalendar.
+
+L’événement est volontairement :
+
+- intitulé **« Demande de rappel avec Stéphanie Recorda — à confirmer »** ;
+- en journée entière ;
+- `STATUS:TENTATIVE` ;
+- non bloquant (`TRANSP:TRANSPARENT`) ;
+- accompagné du créneau de préférence dans la description.
+
+Cela conserve la demande dans l’agenda sans inventer un horaire précis ni faire croire à un rendez-vous confirmé.
+
+### Agenda côté Stéphanie
+
+La demande envoyée à Stéphanie via FormSubmit contient également :
+
+- un lien Google Agenda ;
+- un lien `.ics` universel.
+
+Elle peut donc elle aussi conserver la demande dans son agenda comme élément **à confirmer**.
+
+### Confirmation e-mail au prospect
+
+Le backend contient désormais un raccord transactionnel **optionnel Brevo**. Lorsqu’il est configuré, il envoie automatiquement au prospect un e-mail de confirmation avec :
+
+- récapitulatif de la demande ;
+- rappel que le créneau reste à confirmer ;
+- liens Google Agenda et `.ics` ;
+- coordonnées de Stéphanie.
+
+Variables nécessaires :
+
+- `BREVO_API_KEY` ;
+- `BREVO_SENDER_EMAIL` ;
+- `BREVO_SENDER_NAME` facultatif.
+
+Tant que ces variables ne sont pas présentes, la transmission principale à Stéphanie continue de fonctionner mais le site **ne prétend pas** qu’un e-mail automatique a été envoyé.
+
+Le même backend peut inscrire l’adresse à une liste Brevo uniquement si l’opt-in newsletter a été coché et si `BREVO_NEWSLETTER_LIST_ID` est configuré.
+
+Aucun abonnement n’est effectué sans opt-in.
+
+## 6. Validation technique après étape 15
+
+Validation GitHub Actions sous Node.js 22 :
 
 - installation des dépendances : **succès** ;
 - `npm run typecheck` : **succès** ;
 - `npm run build` : **succès**.
 
-Le workflow GitHub Actions utilisé pour ce contrôle était temporaire et a été supprimé après validation.
+Run : `35262988906`.
 
-Aucune erreur TypeScript ni erreur de build Next.js n’a été détectée.
+Le workflow temporaire de validation a été supprimé après succès.
 
-## 6. Previews et validation visuelle
+Aucune erreur TypeScript ni erreur de build Next.js n’a été détectée avec :
 
-### Preview V2 — hiérarchie mobile
+- nouvel écran de confirmation ;
+- génération des liens Google Agenda ;
+- route `.ics` ;
+- raccord Brevo optionnel ;
+- inscription newsletter conditionnelle.
 
-La preview V2 a validé : visage visible, citation absente sur mobile, hero plus court, offres immédiatement après le portrait, accordions tactiles et CTA lisibles.
+## 7. Previews
 
-### Étape 14 — Preview V3 du formulaire de rappel
-
-Une preview V3 dédiée à la validation du parcours de rappel a été créée sur Vercel :
+### Preview V3
 
 `https://stephanie-recorda-rh-preview-v3.vercel.app`
 
-Projet Vercel : `prj_lbM8aXYbYGF6u5LewkLJrQj4Jhrt`  
-Déploiement contrôlé : `dpl_4VuGd2SALNfkRoHuXGgFjh1DLmKW`
+La V3 a permis de tester le formulaire sur téléphone réel et a révélé le problème de confirmation trop discrète.
 
-Le domaine stable a été contrôlé et répond **HTTP 200 OK**.
-
-Cette V3 est volontairement une **preview statique d’interaction et de validation visuelle**. Elle reproduit le parcours mobile actuel, les CTA contextuels et le formulaire de rappel afin de permettre un contrôle facile sur téléphone. Elle **ne remplace pas** l’application Next.js du dépôt : la source réelle reste sur la branche V1 avec `app/callback-form.tsx` et l’endpoint `/api/callback`.
-
-La preview V3 permet de vérifier :
-
-- ouverture et fermeture de la fenêtre « Demander à être rappelé » ;
-- nom, entreprise, téléphone, e-mail et besoin principal ;
-- jour souhaité et créneau de préférence ;
-- message facultatif ;
-- consentement de rappel obligatoire ;
-- opt-in conseils RH & Paie séparé et **non précoché** ;
-- reprise du contexte lorsqu’un CTA d’offre est utilisé ;
-- responsive du formulaire en une colonne sur mobile.
-
-Aucune soumission de formulaire n’a été effectuée pendant cette étape. L’activation FormSubmit n’a donc pas été déclenchée.
-
-Le contrôle automatisé a vérifié le déploiement et la structure responsive. Le dernier contrôle visuel doit être fait sur un téléphone réel via la V3 avant d’envoyer une première demande.
-
-## 7. État du chantier après étape 14
-
-La landing dispose maintenant de :
-
-1. header / navigation ;
-2. hero responsive ;
-3. offres placées tôt sur mobile ;
-4. détails dépliables des offres ;
-5. missions ponctuelles détaillées ;
-6. bandeau de bénéfices ;
-7. À propos ;
-8. CTA final ;
-9. formulaire intégré de demande de rappel ;
-10. créneau de préférence ;
-11. contexte d’offre / mission prérempli ;
-12. opt-in facultatif aux conseils RH & Paie ;
-13. endpoint serveur de transmission ;
-14. typecheck et build réussis ;
-15. preview V3 du parcours de rappel disponible et répondant en HTTP 200.
+**Important : cette V3 ne contient pas encore l’écran de succès renforcé de l’étape 15.** La branche Next.js est désormais en avance sur cette preview.
 
 ## 8. Points restant ouverts
 
-- faire le contrôle utilisateur de la V3 sur téléphone réel ;
-- effectuer ensuite un **premier test volontaire du formulaire** et confirmer l’adresse FormSubmit dans la boîte de Stéphanie ;
-- décider si l’opt-in newsletter doit rester un simple consentement transmis à Stéphanie ou être connecté à Brevo / Mailchimp / autre ;
-- éventuellement connecter plus tard un véritable agenda synchronisé ;
-- implémenter éventuellement le mini-diagnostic « Quelle offre me convient ? » ;
-- finaliser politique de confidentialité, mentions légales, analytics / cookies si nécessaire ;
+- créer une nouvelle preview de l’état post-étape 15 et contrôler le nouvel écran de succès sur mobile ;
+- vérifier que Stéphanie a bien activé FormSubmit à la suite de la première demande réelle ;
+- décider / configurer le prestataire transactionnel : Brevo est préparé, mais pas encore activé faute de clé / expéditeur vérifié ;
+- si Brevo est retenu, créer / choisir la liste newsletter puis renseigner `BREVO_NEWSLETTER_LIST_ID` ;
+- un véritable agenda synchronisé reste une évolution ultérieure : lecture des disponibilités, horaire confirmé, invitations et annulations ;
+- mini-diagnostic « Quelle offre me convient ? » toujours en backlog prioritaire ;
+- politique de confidentialité, mentions légales, analytics / cookies à finaliser ;
 - relire coordonnées, textes, biographie, tarifs et périmètres ;
 - faire valider la citation du hero par Stéphanie.
 
 ## 9. Prochaine étape recommandée
 
-Ouvrir la **preview V3 sur téléphone réel** et vérifier le confort du formulaire.
+Créer une **preview V4** de l’état post-étape 15 et vérifier sur téléphone :
 
-Après validation utilisateur explicite, effectuer **une seule soumission de test** avec des données de test afin de déclencher l’e-mail d’activation FormSubmit. Stéphanie devra alors confirmer cette activation dans sa boîte mail avant de vérifier la réception d’une demande réelle.
+1. que la fin de parcours est immédiatement comprise ;
+2. que le récapitulatif est lisible ;
+3. que Google Agenda s’ouvre correctement ;
+4. que l’export `.ics` est récupérable ;
+5. que l’écran reste compact sur mobile.
+
+Ensuite seulement, décider si Brevo est activé maintenant pour l’e-mail de confirmation et la newsletter ou si ce raccord attend la mise en production.
 
 ## 10. Discipline de reprise
 
