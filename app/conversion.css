@@ -1,0 +1,331 @@
+.site-shell {
+  display: flex;
+  flex-direction: column;
+}
+
+.offer-details,
+.expertise-details {
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+.expertise-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-trigger {
+  min-height: 46px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  color: var(--navy-900);
+  border-top: 1px solid var(--line);
+  cursor: pointer;
+  font-size: 0.92rem;
+  font-weight: 800;
+  list-style: none;
+  user-select: none;
+}
+
+.detail-trigger::-webkit-details-marker {
+  display: none;
+}
+
+.detail-trigger::after {
+  content: "+";
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+  display: grid;
+  place-items: center;
+  color: var(--navy-900);
+  background: var(--blue-soft-100);
+  border-radius: 50%;
+  font-size: 1.15rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.offer-details[open] > .detail-trigger::after,
+.expertise-details[open] > .detail-trigger::after {
+  content: "−";
+}
+
+.detail-trigger:hover {
+  color: var(--navy-700);
+}
+
+.detail-trigger:focus-visible {
+  outline: 3px solid rgb(22 150 210 / 28%);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.detail-panel {
+  padding: 4px 0 2px;
+}
+
+.detail-list {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+  list-style: none;
+}
+
+.detail-list li {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.detail-list strong {
+  display: block;
+  color: var(--navy-800);
+  font-size: 0.92rem;
+  line-height: 1.35;
+}
+
+.detail-list li span {
+  display: block;
+  margin-top: 4px;
+}
+
+.detail-list-simple li {
+  position: relative;
+  padding-left: 18px;
+}
+
+.detail-list-simple li::before {
+  content: "•";
+  position: absolute;
+  left: 2px;
+  color: var(--accent);
+  font-weight: 800;
+}
+
+.detail-cta {
+  width: fit-content;
+  margin-top: 22px;
+}
+
+@media (max-width: 700px) {
+  .site-header {
+    order: 0;
+  }
+
+  .hero {
+    order: 1;
+  }
+
+  .offers-section {
+    order: 2;
+  }
+
+  .benefits {
+    order: 3;
+  }
+
+  .expertise-section {
+    order: 4;
+  }
+
+  .about-section {
+    order: 5;
+  }
+
+  .hero-inner {
+    padding-top: 8px;
+  }
+
+  .hero-copy {
+    padding: 26px 0 22px;
+  }
+
+  .eyebrow {
+    margin-bottom: 14px;
+    font-size: 0.66rem;
+  }
+
+  h1 {
+    font-size: clamp(2.3rem, 10.8vw, 3.25rem);
+    line-height: 0.98;
+  }
+
+  .hero-proof {
+    margin-top: 18px;
+    font-size: 0.92rem;
+    line-height: 1.38;
+  }
+
+  .hero-contact {
+    margin-top: 16px;
+    gap: 7px;
+    font-size: 0.86rem;
+  }
+
+  .hero-email {
+    display: none !important;
+  }
+
+  .hero-actions {
+    margin-top: 18px;
+  }
+
+  .hero-contact-cta {
+    display: none;
+  }
+
+  .hero-offers-cta {
+    width: 100%;
+    color: var(--white);
+    background: var(--navy-900);
+    border-color: var(--navy-900);
+  }
+
+  .hero-offers-cta:hover {
+    color: var(--white);
+    background: var(--navy-700);
+    border-color: var(--navy-700);
+  }
+
+  .hero-portrait {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .portrait-frame {
+    width: 100%;
+    aspect-ratio: 5 / 4;
+    border-radius: 70px 70px 0 0;
+  }
+
+  .portrait-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 8%;
+  }
+
+  .hero-quote {
+    display: none;
+  }
+
+  .offers-section .section-inner {
+    padding-top: 34px;
+    padding-bottom: 46px;
+  }
+
+  .offers-grid {
+    margin-top: 24px;
+    gap: 16px;
+  }
+
+  .offer-card {
+    padding: 24px 20px 20px;
+  }
+
+  .offer-price {
+    margin-top: 18px;
+  }
+
+  .offer-list {
+    margin-top: 18px;
+    gap: 11px;
+  }
+
+  .offer-details,
+  .expertise-details {
+    padding-top: 18px;
+  }
+
+  .detail-trigger {
+    min-height: 48px;
+    font-size: 0.94rem;
+  }
+
+  .detail-panel {
+    padding-top: 6px;
+  }
+
+  .detail-list {
+    gap: 14px;
+  }
+
+  .detail-list li,
+  .detail-list strong {
+    font-size: 0.92rem;
+  }
+
+  .detail-cta {
+    width: 100%;
+    margin-top: 18px;
+  }
+
+  .benefits-inner {
+    padding-block: 4px;
+  }
+
+  .benefit,
+  .benefit:first-child,
+  .benefit:last-child {
+    min-height: 88px;
+    padding: 14px 0;
+  }
+
+  .benefit h2 {
+    font-size: 1rem;
+  }
+
+  .benefit p {
+    margin-top: 5px;
+    font-size: 0.9rem;
+  }
+
+  .expertise-section .section-inner,
+  .about-section .section-inner {
+    padding-top: 46px;
+  }
+}
+
+@media (max-width: 430px) {
+  .site-header {
+    padding-inline: 14px;
+  }
+
+  .brand-name {
+    font-size: 1.18rem;
+  }
+
+  .header-cta {
+    padding-inline: 11px;
+    font-size: 0.72rem;
+  }
+
+  .hero-inner {
+    padding-inline: 16px;
+  }
+
+  h1 {
+    font-size: clamp(2.18rem, 10.7vw, 2.75rem);
+  }
+
+  .section-inner {
+    padding-inline: 16px;
+  }
+
+  .offers-section .section-inner {
+    padding-top: 30px;
+  }
+
+  .section-kicker {
+    font-size: 0.68rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.85rem, 8vw, 2.35rem);
+  }
+}
