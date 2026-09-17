@@ -38,188 +38,179 @@ La V1 utilise :
 
 Fichiers principaux : `package.json`, `next.config.mjs`, `tsconfig.json`, `next-env.d.ts`, `.gitignore`, `app/layout.tsx`, `app/page.tsx`, `app/globals.css`.
 
-Fichiers de styles dédiés :
+Fichiers / composants dédiés :
 
-- `app/expertise.css` pour les prestations ponctuelles ;
-- `app/about.css` pour la section À propos ;
-- `app/contact.css` pour le CTA final / contact ;
-- `app/conversion.css` pour les interactions des offres et la hiérarchie mobile orientée conversion.
+- `app/expertise.css` — prestations ponctuelles ;
+- `app/about.css` — section À propos ;
+- `app/contact.css` — CTA final ;
+- `app/conversion.css` — interactions des offres et hiérarchie mobile ;
+- `app/callback-form.tsx` — formulaire modal de demande de rappel ;
+- `app/callback-form.css` — styles du formulaire ;
+- `app/api/callback/route.ts` — endpoint serveur de réception / transmission des demandes ;
+- `app/contact-cta.tsx` — bloc final de contact.
 
-Le bloc final de contact est isolé dans :
-
-`app/contact-cta.tsx`
-
-Il est rendu depuis `app/layout.tsx`, après le contenu principal de la landing page.
-
-## 3. Éléments déjà intégrés
+## 3. Éléments intégrés
 
 ### Hero
 
-Le hero est intégré avec : identité Stéphanie Recorda, navigation desktop, CTA « Prendre rendez-vous », surtitre, H1, repères d’expertise, coordonnées cliquables, double CTA sur desktop, portrait validé et responsive.
+Le hero est intégré avec identité Stéphanie Recorda, navigation, surtitre, H1, repères d’expertise, coordonnées cliquables, CTA, portrait validé et responsive.
 
-La citation du hero reste **à valider textuellement avec Stéphanie avant production** conformément à `content/SITE_CONTENT.md`.
+Sur mobile : hero compact, citation masquée, e-mail masqué dans le hero et priorité donnée au CTA vers les offres. Le portrait est recadré pour garder le visage entièrement visible.
 
-Sur mobile, la citation est masquée afin de ne plus recouvrir le visage de Stéphanie et de raccourcir le hero.
+La citation reste à valider textuellement avec Stéphanie avant production.
 
 ### Bandeau de bénéfices
 
-Le bandeau reste **non cliquable**. Il comprend :
+Le bandeau reste **non cliquable** :
 
-1. **Fiabilisez votre paie** — Des processus fiables et conformes.
-2. **Structurez vos démarches RH** — Des outils et méthodes adaptés à votre réalité.
-3. **Anticipez vos risques RH** — Une vision globale et préventive.
-4. **Flexible & humain** — Sur site ou à distance, selon vos besoins.
+1. Fiabilisez votre paie ;
+2. Structurez vos démarches RH ;
+3. Anticipez vos risques RH ;
+4. Flexible & humain.
 
-Sur desktop il reste sous le hero. Sur mobile il est volontairement déplacé **après les offres forfaitaires** afin que les produits apparaissent beaucoup plus tôt dans le parcours.
+Sur mobile, il arrive après les offres afin de réduire le temps de scroll avant les produits.
 
-### Offres forfaitaires récurrentes
+### Offres forfaitaires
 
-La section **« Offres forfaitaires récurrentes »** est intégrée et désormais **actionnable**.
+Les trois offres sont intégrées :
 
-1. **Pack TPE Sérénité** — 5 à 10 salariés — **690 € HT / mois**.
-2. **Pack PME Performance** — 11 à 25 salariés — **1 190 € HT / mois**.
+1. **Pack TPE Sérénité** — 5 à 10 salariés — **690 € HT / mois** ;
+2. **Pack PME Performance** — 11 à 25 salariés — **1 190 € HT / mois** ;
 3. **Pack Sur-Mesure** — +25 salariés / multi-sites — **Sur devis**.
 
-Chaque carte contient maintenant un contrôle **« Voir le détail »** natif et accessible qui déplie :
+Chaque carte dispose d’un **« Voir le détail »** natif via `<details>` / `<summary>`.
 
-- le périmètre documenté dans `content/SITE_CONTENT.md` ;
-- les principaux éléments inclus ;
-- un CTA contextuel vers Stéphanie avec objet d’e-mail prérempli.
+Les CTA **« Échanger sur cette formule »** et **« Demander une estimation »** n’ouvrent plus un e-mail : ils ouvrent désormais le formulaire de rappel avec le nom de l’offre prérempli comme contexte.
 
-CTA : **« Échanger sur cette formule »** pour TPE / PME et **« Demander une estimation »** pour le Sur-Mesure.
+### Prestations ponctuelles
 
-Le Pack PME reste visuellement mis en avant.
+Les trois missions sont intégrées et actionnables :
 
-### Prestations ponctuelles & missions d’expertise
+1. Diagnostic RH & Organisation du Travail — **350 à 400 € HT / jour** ;
+2. Audit Qualiopi & Conformité CFA / OF — **400 € HT / jour** ;
+3. Sous-traitance Paie — **22 à 28 € HT / bulletin**.
 
-La section est intégrée et désormais **actionnable** elle aussi :
-
-1. **Diagnostic RH & Organisation du Travail** — **350 à 400 € HT / jour**.
-2. **Audit Qualiopi & Conformité CFA / OF** — **400 € HT / jour**.
-3. **Sous-traitance Paie** — **22 à 28 € HT / bulletin**.
-
-Chaque carte dispose d’un **« Voir le détail »** dépliable avec le périmètre documenté et un CTA contextuel : **« Demander un diagnostic »** ou **« Me parler de cette mission »**.
+Chaque CTA de mission ouvre le même formulaire de rappel avec la mission concernée comme contexte.
 
 ### À propos
 
-La section **« À propos — Une expertise terrain au service de vos ambitions »** est intégrée.
+La section est intégrée avec les repères documentés : environ 15 ans d’expérience RH, 11 ans dans l’Armée de Terre, spécialiste paie Silae, gestion RH d’unités d’environ 210 à 350 personnes.
 
-Repères affichés :
+Le texte biographique reste à valider avant production.
 
-- environ **15 ans d’expérience RH** ;
-- **11 ans dans l’Armée de Terre** ;
-- **Spécialiste paie Silae** ;
-- gestion RH d’unités d’environ **210 à 350 personnes**.
+### CTA final / contact
 
-Le texte biographique reste à relire et valider par Stéphanie avant production.
+Le bloc final de contact affiche téléphone, e-mail, zone d’intervention et bouton **« Prendre rendez-vous »**.
 
-### CTA final / Contact
+Le bouton ouvre maintenant le formulaire de rappel intégré au lieu d’un `mailto:`.
 
-Le bloc final de contact est intégré conformément à la référence visuelle avec téléphone, e-mail, zone d’intervention et bouton « Prendre rendez-vous ».
+## 4. Demande de rappel — étape 13
 
-Le bouton ouvre actuellement un e-mail pré-adressé. Aucun outil externe de calendrier ou formulaire n’est branché à ce stade.
+Décision utilisateur : remplacer l’ouverture directe d’un e-mail par un parcours plus professionnel de demande de rappel avec créneau de préférence et opt-in facultatif aux contenus RH & Paie.
 
-## 4. Validation technique
+### Parcours implémenté
 
-Une première validation complète a été effectuée à l’étape 9 sur GitHub Actions avec Node.js 22 : installation, `npm run typecheck` et `npm run build` réussis.
+Les CTA « Prendre rendez-vous » ouvrent une fenêtre intégrée **« Demander à être rappelé »**.
 
-Après les modifications de l’étape 11, une **nouvelle validation complète** a été exécutée avec la même chaîne :
+Champs :
 
-- installation des dépendances : succès ;
-- `npm run typecheck` : succès ;
-- `npm run build` : succès.
+- nom et prénom — obligatoire ;
+- entreprise — facultatif ;
+- téléphone — obligatoire ;
+- e-mail — obligatoire ;
+- besoin principal — obligatoire ;
+- jour souhaité — obligatoire ;
+- créneau de préférence — obligatoire ;
+- message libre — facultatif.
 
-Aucune erreur TypeScript ni erreur de build Next.js n’a été détectée après la refonte mobile et l’ajout des détails interactifs.
+Créneaux proposés sans promettre une disponibilité horaire précise :
 
-Le workflow GitHub Actions était temporaire et a été supprimé après validation.
+- matin ;
+- pause déjeuner ;
+- après-midi ;
+- fin de journée ;
+- flexible.
 
-## 5. Validation visuelle
+Le formulaire précise explicitement qu’il s’agit d’une **préférence de rappel et non d’une réservation automatique d’agenda**.
 
-### Étape 10 — ancienne preview
+### Consentements
 
-Une première preview Vercel avait été créée :
+Le formulaire contient :
 
-`https://stephanie-recorda-rh-preview-9koymj3h0-guardian13.vercel.app`
+- consentement obligatoire pour être recontacté au sujet de la demande ;
+- opt-in **facultatif, séparé et non précoché** : « Je souhaite recevoir ponctuellement les conseils RH & Paie de Stéphanie ».
 
-Elle a permis d’identifier deux défauts mobiles : citation recouvrant le visage et accès trop tardif aux offres.
+L’opt-in newsletter est actuellement **collecté et transmis avec la demande**, mais aucun outil newsletter n’est encore connecté pour ajouter automatiquement le contact à une liste.
 
-**Cette preview représente l’état AVANT les corrections de l’étape 11 et ne doit plus être utilisée comme référence actuelle.**
+### Réception technique des demandes
 
-### Étape 12 — preview post-corrections
+`app/api/callback/route.ts` valide les champs côté serveur, inclut un honeypot anti-bot puis transmet la demande à **FormSubmit** vers `stephanie.recorda1@gmail.com`.
 
-Une nouvelle preview Vercel dédiée au contrôle post-étape 11 a été créée :
+Important avant usage réel : **FormSubmit demande une confirmation de l’adresse de destination lors de la première soumission.** La première demande de test doit donc être envoyée volontairement, puis Stéphanie doit valider l’e-mail d’activation reçu. Cette activation n’a pas été déclenchée automatiquement pendant cette intervention afin de ne pas envoyer d’e-mail externe sans action explicite de l’utilisateur.
+
+La politique de confidentialité / les mentions RGPD devront signaler le traitement des données du formulaire et le prestataire utilisé, ou ce prestataire devra être remplacé avant production si un autre choix est fait.
+
+## 5. Validation technique
+
+Les validations précédentes de la landing étaient réussies.
+
+Après l’ajout du formulaire de rappel, une nouvelle validation complète a été lancée sous Node.js 22 :
+
+- installation des dépendances : **succès** ;
+- `npm run typecheck` : **succès** ;
+- `npm run build` : **succès**.
+
+Le workflow GitHub Actions utilisé pour ce contrôle était temporaire et a été supprimé après validation.
+
+Aucune erreur TypeScript ni erreur de build Next.js n’a été détectée.
+
+## 6. Validation visuelle précédente
+
+Preview V2 post-corrections mobile :
 
 `https://stephanie-recorda-rh-preview-v2-izgwpzqvm-guardian13.vercel.app`
 
-Le déploiement est protégé par Vercel Authentication. Un lien de partage temporaire a été généré pour consultation externe jusqu’au 18/09/2026 :
+Le lien de partage temporaire associé expirait le 18/09/2026.
 
-`https://stephanie-recorda-rh-preview-v2-izgwpzqvm-guardian13.vercel.app/?_vercel_share=K4UZ2nT0WVoLftjjpaRhZshegMFqn5ql`
+La preview V2 a validé : visage visible, citation absente sur mobile, hero plus court, offres immédiatement après le portrait, accordions tactiles et CTA lisibles.
 
-Contrôle HTTP via le lien partagé : **200 OK**.
+Cette preview **ne contient pas encore le nouveau formulaire de rappel de l’étape 13**.
 
-Cette preview reste une copie statique de validation visuelle, fidèle à la hiérarchie mobile et aux interactions de la branche V1 ; elle ne remplace pas l’application Next.js source.
-
-Contrôle visuel effectué en viewport mobile **390 × 844 px** et desktop **1440 × 1000 px**.
-
-Constats mobile après correction :
-
-- le visage de Stéphanie est désormais entièrement visible ;
-- la citation n’est plus superposée au portrait ;
-- le hero est nettement plus court ;
-- les offres forfaitaires arrivent immédiatement après le portrait, avant le bandeau de bénéfices ;
-- les 3 cartes d’offres affichent prix et contenu essentiel sans long préambule ;
-- le contrôle **« Voir le détail »** s’ouvre correctement au tactile / clic ;
-- le détail du Pack TPE a été contrôlé ouvert : contenu lisible et CTA pleine largeur ;
-- les missions ponctuelles disposent elles aussi de détails dépliables.
-
-Aucun nouveau défaut bloquant n’a été identifié pendant cette revue.
-
-## 6. Décisions UX prises à l’étape 11
-
-Retour utilisateur : sur mobile, le parcours imposait trop de défilement avant d’arriver aux produits et la citation masquait la tête de Stéphanie.
-
-Décisions appliquées :
-
-- mobile : **hero compact → offres → bénéfices → expertise → à propos → contact** ;
-- portrait mobile recadré en format plus court avec priorité donnée au haut du portrait ;
-- citation du hero masquée sur mobile ;
-- e-mail du hero masqué sur mobile pour alléger le premier écran, tout en restant disponible dans le CTA final ;
-- CTA mobile du hero centré sur **« Découvrir mes offres »** ; le bouton « Prendre rendez-vous » reste disponible dans le header et le bloc contact ;
-- offres et missions ponctuelles désormais dépliables sans JavaScript via `<details>` / `<summary>` ;
-- CTA contextuels par offre / mission avec e-mail prérempli ;
-- petits textes mobiles légèrement renforcés.
-
-Ces adaptations restent compatibles avec la direction visuelle validée ; l’ordre mobile fait partie des éléments explicitement adaptables dans `docs/DESIGN_REFERENCE.md`.
-
-## 7. État du chantier après étape 12
+## 7. État du chantier après étape 13
 
 La landing dispose maintenant de :
 
 1. header / navigation ;
-2. hero responsive avec portrait mobile corrigé ;
-3. offres forfaitaires placées tôt sur mobile, avec détails et CTA ;
-4. bandeau de bénéfices ;
-5. missions ponctuelles avec détails et CTA ;
-6. À propos ;
-7. CTA final / contact ;
-8. typecheck réussi après modifications ;
-9. build Next.js réussi après modifications ;
-10. preview post-corrections contrôlée sur mobile et desktop.
+2. hero responsive ;
+3. offres placées tôt sur mobile ;
+4. détails dépliables des offres ;
+5. missions ponctuelles détaillées ;
+6. bandeau de bénéfices ;
+7. À propos ;
+8. CTA final ;
+9. formulaire intégré de demande de rappel ;
+10. créneau de préférence ;
+11. contexte d’offre / mission prérempli ;
+12. opt-in facultatif aux conseils RH & Paie ;
+13. endpoint serveur de transmission ;
+14. typecheck et build réussis après cette évolution.
 
-## 8. Ce qui reste à faire
+## 8. Points restant ouverts
 
-- effectuer si possible un dernier contrôle sur le téléphone réel de Gwen / Stéphanie avec la nouvelle preview ;
-- implémenter éventuellement le mini-diagnostic ;
-- choisir / brancher un vrai outil de formulaire ou de prise de rendez-vous ;
-- finaliser SEO / analytics / mentions légales ;
-- relire coordonnées, textes, biographie, tarifs et périmètres avant production ;
+- faire un premier test volontaire du formulaire et confirmer l’adresse FormSubmit dans la boîte de Stéphanie ;
+- créer une nouvelle preview visuelle incluant réellement le formulaire modal et contrôler son ergonomie mobile ;
+- décider si l’opt-in newsletter doit rester un simple consentement transmis à Stéphanie ou être connecté à Brevo / Mailchimp / autre ;
+- éventuellement connecter plus tard un véritable agenda synchronisé ;
+- implémenter éventuellement le mini-diagnostic « Quelle offre me convient ? » ;
+- finaliser politique de confidentialité, mentions légales, analytics / cookies si nécessaire ;
+- relire coordonnées, textes, biographie, tarifs et périmètres ;
 - faire valider la citation du hero par Stéphanie.
 
 ## 9. Prochaine étape recommandée
 
-Avant d’ajouter une nouvelle fonctionnalité, faire un **contrôle utilisateur rapide de la preview V2 sur téléphone réel** : vitesse d’accès aux offres, confort des accordions et lisibilité générale.
+Créer une **preview V3 du vrai état post-formulaire** et contrôler sur mobile : ouverture / fermeture de la fenêtre, confort des champs, choix de date / créneau, opt-in non précoché et CTA contextuels.
 
-Si ce contrôle est validé, la prochaine fonctionnalité logique est le **mini-diagnostic « Quelle offre me convient ? »**, ou le branchement d’un vrai formulaire / agenda selon la priorité métier.
+Ensuite, avec accord explicite, effectuer **une soumission de test** afin que Stéphanie reçoive et confirme l’activation FormSubmit.
 
 ## 10. Discipline de reprise
 
