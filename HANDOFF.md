@@ -38,6 +38,12 @@ La V1 utilise :
 
 Fichiers principaux : `package.json`, `next.config.mjs`, `tsconfig.json`, `next-env.d.ts`, `.gitignore`, `app/layout.tsx`, `app/page.tsx`, `app/globals.css`.
 
+Un fichier de style dédié a été ajouté pour la section expertise :
+
+`app/expertise.css`
+
+Il est importé depuis `app/layout.tsx`.
+
 ## 3. Éléments déjà intégrés
 
 ### Hero
@@ -59,7 +65,7 @@ Responsive : 4 colonnes desktop, 2 × 2 tablette, 1 colonne mobile.
 
 ### Offres forfaitaires récurrentes
 
-La section **« Offres forfaitaires récurrentes » est maintenant intégrée** dans `app/page.tsx` et `app/globals.css`.
+La section **« Offres forfaitaires récurrentes »** est intégrée dans `app/page.tsx` et `app/globals.css`.
 
 Contenu V1 affiché :
 
@@ -67,16 +73,21 @@ Contenu V1 affiché :
 2. **Pack PME Performance** — 11 à 25 salariés — **1 190 € HT / mois** — Gestion globale RH & Paie, Suivi des talents, Présence terrain.
 3. **Pack Sur-Mesure** — +25 salariés / multi-sites — **Sur devis** — Volume adapté, Accompagnement évolutif, Présence selon les besoins.
 
-Principes de design respectés :
+Principes de design respectés : 3 cartes en desktop, Pack PME mis en avant, prix hiérarchisés, listes courtes avec coches, bordures fines, rayon modéré, ombre légère et empilement vertical sur tablette / mobile.
 
-- 3 cartes en grille desktop ;
-- Pack PME visuellement mis en avant avec fond bleu très pâle et badge discret « Le plus complet » ;
-- prix fortement hiérarchisés ;
-- listes courtes avec coches ;
-- bordures fines, rayon modéré et ombre légère ;
-- empilement vertical sur tablette / mobile.
+**Important :** les boutons « Voir le détail », accordions, formulaire, préremplissage et mini-diagnostic n’ont pas encore été ajoutés.
 
-**Important :** les boutons « Voir le détail », les accordions, le formulaire, le préremplissage de l’offre et le mini-diagnostic n’ont volontairement pas été ajoutés à cette étape.
+### Prestations ponctuelles & missions d’expertise
+
+La section **« Prestations ponctuelles & missions d’expertise » est maintenant intégrée**.
+
+Contenu V1 affiché :
+
+1. **Diagnostic RH & Organisation du Travail** — **350 à 400 € HT / jour** — diagnostic terrain, structuration des process RH et accompagnement à la mise en place de nouvelles pratiques.
+2. **Audit Qualiopi & Conformité CFA / OF** — **400 € HT / jour** — préparation et suivi des audits sur le volet RH / administratif et structuration du suivi des apprenants et formateurs.
+3. **Sous-traitance Paie** — **22 à 28 € HT / bulletin** — portefeuilles clients sous Silae et renfort opérationnel lors des pics d’activité des cabinets comptables.
+
+Principes de design : 3 cartes sobres sur desktop, fond de section très clair, tarifs visibles, descriptions courtes, empilement vertical sous 900 px. Aucun CTA ni formulaire n’a été ajouté à cette étape.
 
 ## 4. Positionnement et contenu de référence
 
@@ -97,7 +108,6 @@ Source de vérité métier et tarifaire : `content/SITE_CONTENT.md`.
 
 ## 6. Ce qui reste à faire
 
-- intégrer les missions ponctuelles / expertise ;
 - intégrer la section À propos ;
 - intégrer le CTA final / contact ;
 - ajouter ensuite les détails actionnables des packs ;
@@ -111,7 +121,7 @@ Source de vérité métier et tarifaire : `content/SITE_CONTENT.md`.
 
 ## 7. Prochaine étape recommandée
 
-Intégrer **uniquement la section « Prestations ponctuelles & missions d’expertise »** conformément à la référence visuelle, avec les 3 cartes métier et leurs tarifs actuels, sans formulaire ni logique supplémentaire.
+Intégrer **uniquement la section À propos**, conformément à la référence visuelle et au contenu métier déjà documenté : titre, base biographique et principaux repères de preuve, sans ajouter d’autres fonctionnalités.
 
 Après cette étape, rendre compte avant de poursuivre.
 
