@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1055" height="1491" viewBox="0 0 1055 1491" role="img" aria-labelledby="title desc">
+  <title id="title">Référence visuelle figée — Site Stéphanie Recorda — 17 septembre 2026</title>
+  <desc id="desc">Blueprint visuel de la homepage validée : marine, blanc, bleu pâle, titres serif, corps sans-serif, hero avec portrait à droite, bandeau bénéfices, cartes offres, expertise, à propos et CTA final.</desc>
+  <defs>
+    <style><![CDATA[
+      .display{font-family:Georgia,'Times New Roman',serif;fill:#0D274A;font-weight:700}
+      .ui{font-family:Arial,'Segoe UI',sans-serif;fill:#122C4C}
+      .small{font-size:11px;letter-spacing:1.4px}
+      .body{font-size:14px}
+      .cardtitle{font-size:18px;font-weight:700}
+      .price{font-size:22px;font-weight:700}
+      .muted{fill:#564F4D}
+      .white{fill:#FFFFFF}
+      .line{stroke:#D6DBE1;stroke-width:1}
+      .accent{stroke:#1696D2;stroke-width:3}
+    ]]></style>
+    <linearGradient id="heroBg" x1="0" x2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#EFF5FA"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Page background -->
+  <rect width="1055" height="1491" fill="#FFFFFF"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1055" height="72" fill="#FFFFFF"/>
+  <text x="58" y="34" class="display" font-size="27">Stéphanie Recorda</text>
+  <line x1="59" y1="50" x2="92" y2="50" class="accent"/>
+  <text x="100" y="53" class="ui small">CONSEIL RH &amp; PAIE  |  TPE • PME</text>
+  <text x="360" y="34" class="ui body">Accueil</text>
+  <text x="428" y="34" class="ui body">Offres</text>
+  <text x="485" y="34" class="ui body">Expertise</text>
+  <text x="566" y="34" class="ui body">À propos</text>
+  <text x="636" y="34" class="ui body">Contact</text>
+  <rect x="806" y="12" rx="7" ry="7" width="190" height="42" fill="#0D274A"/>
+  <text x="833" y="38" class="ui white" font-size="14" font-weight="700">Prendre rendez-vous</text>
+
+  <!-- Hero -->
+  <rect x="0" y="72" width="1055" height="350" fill="url(#heroBg)"/>
+  <text x="60" y="116" class="ui small" fill="#394352">EXTERNALISER • SÉCURISER • AVANCER ENSEMBLE</text>
+  <text x="60" y="164" class="display" font-size="45">Expertise RH &amp; Paie</text>
+  <text x="60" y="211" class="display" font-size="45">externalisée pour</text>
+  <text x="60" y="258" class="display" font-size="45">TPE et PME</text>
+  <text x="60" y="292" class="ui" font-size="19">15 ans d’expérience RH • Spécialiste paie Silae</text>
+  <text x="60" y="317" class="ui" font-size="19">Vision globale &amp; prévention des risques RH</text>
+  <text x="60" y="352" class="ui body">● Strasbourg &amp; Bas-Rhin     ☎ 06.50.73.88.92     ✉ stephanie.recorda1@gmail.com</text>
+  <rect x="60" y="372" rx="6" ry="6" width="180" height="42" fill="#0D274A"/>
+  <text x="82" y="398" class="ui white" font-size="14" font-weight="700">Prendre rendez-vous</text>
+  <rect x="253" y="372" rx="6" ry="6" width="158" height="42" fill="#FFFFFF" stroke="#133255"/>
+  <text x="276" y="398" class="ui" font-size="14" font-weight="700">Découvrir mes offres</text>
+
+  <!-- Portrait zone: locked composition, not source photo -->
+  <path d="M585 422 L585 90 Q760 70 937 90 L937 422 Z" fill="#E8EEF3"/>
+  <ellipse cx="760" cy="213" rx="86" ry="98" fill="#D6DBE1"/>
+  <path d="M652 422 Q677 311 760 310 Q843 311 875 422 Z" fill="#252224"/>
+  <path d="M678 151 Q700 73 775 83 Q852 98 840 171 Q821 122 776 116 Q725 109 678 151 Z" fill="#564F4D"/>
+  <text x="708" y="220" class="ui" font-size="12" fill="#394352">PORTRAIT</text>
+  <text x="690" y="238" class="ui" font-size="12" fill="#394352">STÉPHANIE</text>
+  <text x="872" y="174" class="display" font-size="18" font-style="italic">« Des ressources</text>
+  <text x="872" y="198" class="display" font-size="18" font-style="italic">humaines plus humaines,</text>
+  <text x="872" y="222" class="display" font-size="18" font-style="italic">au service de la</text>
+  <text x="872" y="246" class="display" font-size="18" font-style="italic">performance durable. »</text>
+
+  <!-- Benefits strip -->
+  <rect x="0" y="422" width="1055" height="112" fill="#F1F8FE"/>
+  <line x1="264" y1="445" x2="264" y2="512" class="line"/>
+  <line x1="527" y1="445" x2="527" y2="512" class="line"/>
+  <line x1="790" y1="445" x2="790" y2="512" class="line"/>
+  <circle cx="81" cy="476" r="25" fill="#E1F1FB"/>
+  <text x="120" y="465" class="ui cardtitle">Fiabilisez votre paie</text>
+  <text x="120" y="488" class="ui body muted">Des processus fiables</text>
+  <text x="120" y="506" class="ui body muted">et conformes</text>
+  <circle cx="345" cy="476" r="25" fill="#E1F1FB"/>
+  <text x="384" y="465" class="ui cardtitle">Structurez vos démarches RH</text>
+  <text x="384" y="488" class="ui body muted">Des outils et méthodes adaptés</text>
+  <circle cx="608" cy="476" r="25" fill="#E1F1FB"/>
+  <text x="647" y="465" class="ui cardtitle">Anticipez vos risques RH</text>
+  <text x="647" y="488" class="ui body muted">Une vision globale et préventive</text>
+  <circle cx="871" cy="476" r="25" fill="#E1F1FB"/>
+  <text x="910" y="465" class="ui cardtitle">Flexible &amp; humain</text>
+  <text x="910" y="488" class="ui body muted">Sur site ou à distance</text>
+
+  <!-- Offers -->
+  <text x="54" y="571" class="ui small">DES SOLUTIONS ADAPTÉES À VOTRE TAILLE ET À VOS ENJEUX</text>
+  <text x="54" y="605" class="display" font-size="30">Offres forfaitaires récurrentes</text>
+  <line x1="54" y1="620" x2="88" y2="620" class="accent"/>
+
+  <rect x="40" y="646" rx="8" ry="8" width="305" height="250" fill="#FFFFFF" stroke="#D6DBE1"/>
+  <text x="75" y="688" class="ui cardtitle">Pack TPE Sérénité</text>
+  <text x="75" y="710" class="ui body muted">5 à 10 salariés</text>
+  <text x="75" y="747" class="ui price">690 € HT / mois</text>
+  <text x="75" y="783" class="ui body">✓ Paie &amp; DSN</text>
+  <text x="75" y="812" class="ui body">✓ Administration RH</text>
+  <text x="75" y="841" class="ui body">✓ Conseil dirigeant</text>
+
+  <rect x="375" y="646" rx="8" ry="8" width="305" height="250" fill="#EFF5FA" stroke="#C8DCEB"/>
+  <rect x="555" y="636" rx="12" ry="12" width="100" height="24" fill="#1696D2"/>
+  <text x="570" y="653" class="ui white" font-size="11">LE PLUS COMPLET</text>
+  <text x="410" y="688" class="ui cardtitle">Pack PME Performance</text>
+  <text x="410" y="710" class="ui body muted">11 à 25 salariés</text>
+  <text x="410" y="747" class="ui price">1 190 € HT / mois</text>
+  <text x="410" y="783" class="ui body">✓ Gestion globale RH &amp; Paie</text>
+  <text x="410" y="812" class="ui body">✓ Suivi des talents</text>
+  <text x="410" y="841" class="ui body">✓ Présence terrain</text>
+
+  <rect x="710" y="646" rx="8" ry="8" width="305" height="250" fill="#FFFFFF" stroke="#D6DBE1"/>
+  <text x="745" y="688" class="ui cardtitle">Pack Sur-Mesure</text>
+  <text x="745" y="710" class="ui body muted">+25 salariés / multi-sites</text>
+  <text x="745" y="747" class="ui price">Sur devis</text>
+  <text x="745" y="783" class="ui body">✓ Volume adapté</text>
+  <text x="745" y="812" class="ui body">✓ Accompagnement évolutif</text>
+  <text x="745" y="841" class="ui body">✓ Présence selon les besoins</text>
+
+  <!-- Expertise -->
+  <text x="54" y="936" class="ui small">UN APPUI CIBLÉ POUR VOS ENJEUX SPÉCIFIQUES</text>
+  <text x="54" y="970" class="display" font-size="30">Prestations ponctuelles &amp; missions d’expertise</text>
+  <line x1="54" y1="985" x2="88" y2="985" class="accent"/>
+
+  <rect x="40" y="1010" rx="7" ry="7" width="305" height="170" fill="#FFFFFF" stroke="#D6DBE1"/>
+  <text x="75" y="1049" class="ui" font-size="16" font-weight="700">Diagnostic RH &amp; Organisation</text>
+  <text x="75" y="1072" class="ui body">350 à 400 € HT / jour</text>
+  <text x="75" y="1110" class="ui body muted">Diagnostic terrain, process RH,</text>
+  <text x="75" y="1131" class="ui body muted">mise en place de pratiques.</text>
+
+  <rect x="375" y="1010" rx="7" ry="7" width="305" height="170" fill="#FFFFFF" stroke="#D6DBE1"/>
+  <text x="410" y="1049" class="ui" font-size="16" font-weight="700">Audit Qualiopi &amp; Conformité</text>
+  <text x="410" y="1072" class="ui body">400 € HT / jour</text>
+  <text x="410" y="1110" class="ui body muted">Préparation des audits et suivi</text>
+  <text x="410" y="1131" class="ui body muted">administratif CFA / OF.</text>
+
+  <rect x="710" y="1010" rx="7" ry="7" width="305" height="170" fill="#FFFFFF" stroke="#D6DBE1"/>
+  <text x="745" y="1049" class="ui" font-size="16" font-weight="700">Sous-traitance Paie</text>
+  <text x="745" y="1072" class="ui body">22 à 28 € HT / bulletin</text>
+  <text x="745" y="1110" class="ui body muted">Portefeuilles clients Silae,</text>
+  <text x="745" y="1131" class="ui body muted">renfort en pics d’activité.</text>
+
+  <!-- About -->
+  <rect x="0" y="1210" width="1055" height="150" fill="#F6F9FC"/>
+  <text x="50" y="1242" class="ui small">À PROPOS</text>
+  <text x="50" y="1275" class="display" font-size="25">Une expertise terrain au service</text>
+  <text x="50" y="1305" class="display" font-size="25">de vos ambitions</text>
+  <text x="355" y="1255" class="ui body">15 ans d’expérience RH, dont 11 ans dans l’Armée de Terre.</text>
+  <text x="355" y="1278" class="ui body">Paie, administration RH, organisation du travail, résolution de problèmes.</text>
+  <text x="355" y="1301" class="ui body">Accompagnement concret des TPE / PME et de leurs dirigeants.</text>
+  <text x="797" y="1255" class="ui body">★ 15 ans d’expérience RH</text>
+  <text x="797" y="1280" class="ui body">★ Spécialiste paie Silae</text>
+  <text x="797" y="1305" class="ui body">★ 210 à 350 personnes</text>
+
+  <!-- CTA -->
+  <rect x="42" y="1381" rx="8" ry="8" width="971" height="79" fill="#0D274A"/>
+  <text x="76" y="1410" class="ui small white">ÉCHANGEONS SUR VOS BESOINS</text>
+  <text x="76" y="1439" class="display white" font-size="25">Parlons de vos besoins RH &amp; Paie</text>
+  <text x="560" y="1414" class="ui white body">☎ 06.50.73.88.92</text>
+  <text x="560" y="1438" class="ui white body">✉ stephanie.recorda1@gmail.com</text>
+  <rect x="812" y="1399" rx="6" ry="6" width="170" height="40" fill="#FFFFFF"/>
+  <text x="831" y="1424" class="ui" font-size="13" font-weight="700">Prendre rendez-vous</text>
+
+  <text x="42" y="1480" class="ui" font-size="10" fill="#564F4D">RÉFÉRENCE FIGÉE — couleurs, hiérarchie typographique, densité, architecture visuelle et allure générale. Ne pas remplacer sans validation explicite.</text>
+</svg>
