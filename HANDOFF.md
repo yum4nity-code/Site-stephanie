@@ -38,12 +38,17 @@ La V1 utilise :
 
 Fichiers principaux : `package.json`, `next.config.mjs`, `tsconfig.json`, `next-env.d.ts`, `.gitignore`, `app/layout.tsx`, `app/page.tsx`, `app/globals.css`.
 
-Fichiers de styles dédiés ajoutés :
+Fichiers de styles dédiés :
 
 - `app/expertise.css` pour les prestations ponctuelles ;
-- `app/about.css` pour la section À propos.
+- `app/about.css` pour la section À propos ;
+- `app/contact.css` pour le CTA final / contact.
 
-Ils sont importés depuis `app/layout.tsx`.
+Le bloc final de contact est isolé dans :
+
+`app/contact-cta.tsx`
+
+Il est rendu depuis `app/layout.tsx`, après le contenu principal de la landing page.
 
 ## 3. Éléments déjà intégrés
 
@@ -66,45 +71,54 @@ Responsive : 4 colonnes desktop, 2 × 2 tablette, 1 colonne mobile.
 
 ### Offres forfaitaires récurrentes
 
-La section **« Offres forfaitaires récurrentes »** est intégrée dans `app/page.tsx` et `app/globals.css`.
+La section **« Offres forfaitaires récurrentes »** est intégrée.
 
-Contenu V1 affiché :
+1. **Pack TPE Sérénité** — 5 à 10 salariés — **690 € HT / mois**.
+2. **Pack PME Performance** — 11 à 25 salariés — **1 190 € HT / mois**.
+3. **Pack Sur-Mesure** — +25 salariés / multi-sites — **Sur devis**.
 
-1. **Pack TPE Sérénité** — 5 à 10 salariés — **690 € HT / mois** — Paie & DSN, Administration RH, Conseil dirigeant.
-2. **Pack PME Performance** — 11 à 25 salariés — **1 190 € HT / mois** — Gestion globale RH & Paie, Suivi des talents, Présence terrain.
-3. **Pack Sur-Mesure** — +25 salariés / multi-sites — **Sur devis** — Volume adapté, Accompagnement évolutif, Présence selon les besoins.
-
-Principes de design respectés : 3 cartes en desktop, Pack PME mis en avant, prix hiérarchisés, listes courtes avec coches, bordures fines, rayon modéré, ombre légère et empilement vertical sur tablette / mobile.
-
-**Important :** les boutons « Voir le détail », accordions, formulaire, préremplissage et mini-diagnostic n’ont pas encore été ajoutés.
+Le Pack PME est visuellement mis en avant. Les boutons « Voir le détail », accordions, formulaire, préremplissage et mini-diagnostic ne sont pas encore ajoutés.
 
 ### Prestations ponctuelles & missions d’expertise
 
-La section **« Prestations ponctuelles & missions d’expertise »** est intégrée.
+La section **« Prestations ponctuelles & missions d’expertise »** est intégrée avec :
 
-Contenu V1 affiché :
+1. **Diagnostic RH & Organisation du Travail** — **350 à 400 € HT / jour**.
+2. **Audit Qualiopi & Conformité CFA / OF** — **400 € HT / jour**.
+3. **Sous-traitance Paie** — **22 à 28 € HT / bulletin**.
 
-1. **Diagnostic RH & Organisation du Travail** — **350 à 400 € HT / jour** — diagnostic terrain, structuration des process RH et accompagnement à la mise en place de nouvelles pratiques.
-2. **Audit Qualiopi & Conformité CFA / OF** — **400 € HT / jour** — préparation et suivi des audits sur le volet RH / administratif et structuration du suivi des apprenants et formateurs.
-3. **Sous-traitance Paie** — **22 à 28 € HT / bulletin** — portefeuilles clients sous Silae et renfort opérationnel lors des pics d’activité des cabinets comptables.
-
-Principes de design : 3 cartes sobres sur desktop, fond de section très clair, tarifs visibles, descriptions courtes, empilement vertical sous 900 px. Aucun CTA ni formulaire n’a été ajouté à cette étape.
+Présentation sobre, tarifs visibles et responsive en une colonne sous 900 px.
 
 ### À propos
 
-La section **« À propos — Une expertise terrain au service de vos ambitions » est maintenant intégrée**.
+La section **« À propos — Une expertise terrain au service de vos ambitions »** est intégrée.
 
-Contenu V1 affiché :
+Repères affichés :
 
 - environ **15 ans d’expérience RH** ;
 - **11 ans dans l’Armée de Terre** ;
-- gestion du cycle RH d’unités d’environ **210 à 350 personnes** ;
-- administration du personnel, paie, carrières, entretiens annuels, contrats / avenants, situations disciplinaires ou conflictuelles, organisation du travail et accompagnement de dirigeants / structures de formation ;
-- repères visibles : 15 ans d’expérience RH, 11 ans Armée de Terre, spécialiste paie Silae, 210 à 350 personnes.
+- **Spécialiste paie Silae** ;
+- gestion RH d’unités d’environ **210 à 350 personnes**.
 
-La mise en page suit la référence : titre à gauche, base biographique au centre, repères de preuve à droite sur desktop. Elle passe en 2 colonnes puis 1 colonne sur les écrans plus étroits.
+Le texte biographique reste à relire et valider par Stéphanie avant production.
 
-Le texte biographique reste à relire et valider par Stéphanie avant production, conformément à `content/SITE_CONTENT.md`.
+### CTA final / Contact
+
+Le **bloc final de contact est maintenant intégré** conformément à la référence visuelle.
+
+Il affiche :
+
+- surtitre **« Échangeons sur vos besoins »** ;
+- titre **« Parlons de vos besoins RH & Paie »** ;
+- texte court expliquant le premier échange ;
+- téléphone cliquable **06.50.73.88.92** ;
+- e-mail cliquable **stephanie.recorda1@gmail.com** ;
+- zone **Strasbourg & Bas-Rhin — sur site / à distance** ;
+- bouton **« Prendre rendez-vous »**.
+
+Le bouton ouvre actuellement un e-mail pré-adressé avec un objet de prise de rendez-vous. Aucun outil externe de calendrier ou formulaire n’est branché à ce stade.
+
+Le design reprend le panneau bleu marine de la référence, avec texte blanc et CTA blanc. Il est responsive et passe en disposition verticale sur mobile.
 
 ## 4. Positionnement et contenu de référence
 
@@ -118,30 +132,45 @@ Source de vérité métier et tarifaire : `content/SITE_CONTENT.md`.
 
 ## 5. Décisions UX à conserver
 
-- Les 4 bénéfices sous le hero sont de la réassurance et restent non cliquables.
-- Les 3 cartes d’offres doivent à terme être actionnables : bouton « Voir le détail », ancre ou bloc dépliable, détail utile, puis CTA « Échanger sur cette formule ».
-- Le mini-diagnostic « Quelle offre me convient ? » / « Trouver mon offre en 1 min » reste une idée prioritaire mais sera traité après la landing page principale.
+- Les 4 bénéfices sous le hero restent non cliquables.
+- Les 3 cartes d’offres doivent devenir actionnables : bouton « Voir le détail », ancre ou bloc dépliable, détail utile, puis CTA « Échanger sur cette formule ».
+- Le mini-diagnostic « Quelle offre me convient ? » / « Trouver mon offre en 1 min » reste une idée prioritaire mais vient après la landing page principale.
+- Le CTA final peut rester basé sur e-mail en V1 tant qu’aucun outil de prise de rendez-vous n’est choisi.
 - Ne pas repartir de zéro sur la direction artistique : marine / blanc / bleu pâle, titres serif, texte sans-serif, beaucoup d’espace blanc, impression cabinet premium accessible.
 
-## 6. Ce qui reste à faire
+## 6. État du chantier après étape 8
 
-- intégrer le CTA final / contact ;
-- ajouter ensuite les détails actionnables des packs ;
+La **structure principale de la landing page est maintenant complète** :
+
+1. header / navigation ;
+2. hero ;
+3. bandeau de bénéfices ;
+4. offres forfaitaires ;
+5. missions ponctuelles ;
+6. À propos ;
+7. CTA final / contact.
+
+Il reste à enrichir et fiabiliser avant production.
+
+## 7. Ce qui reste à faire
+
+- rendre les cartes d’offres actionnables avec leurs détails ;
 - implémenter éventuellement le mini-diagnostic ;
-- brancher le formulaire / prise de rendez-vous ;
+- choisir / brancher un vrai outil de formulaire ou de prise de rendez-vous ;
+- effectuer un build de validation et corriger les erreurs éventuelles ;
 - tester le responsive sur appareils réels ;
 - finaliser SEO / analytics / mentions légales ;
-- effectuer un build / déploiement de validation ;
 - relire coordonnées, textes, biographie et tarifs avant production ;
-- faire valider la citation du hero par Stéphanie.
+- faire valider la citation du hero par Stéphanie ;
+- déployer une preview Vercel pour validation visuelle globale.
 
-## 7. Prochaine étape recommandée
+## 8. Prochaine étape recommandée
 
-Intégrer **uniquement le CTA final / bloc contact** conformément à la référence visuelle : titre « Parlons de vos besoins RH & Paie », texte court, téléphone, e-mail, zone d’intervention et bouton « Prendre rendez-vous », sans encore brancher de formulaire ou d’outil externe.
+Faire une **première validation technique de la landing page complète** : vérifier que le projet compile / build correctement, repérer les erreurs TypeScript / Next.js éventuelles et corriger uniquement ce qui bloque le build.
 
-Après cette étape, rendre compte avant de poursuivre.
+Après ce contrôle, rendre compte avant d’ajouter les interactions des offres ou de poursuivre vers le mini-diagnostic.
 
-## 8. Discipline de reprise
+## 9. Discipline de reprise
 
 Toute personne / IA reprenant ce projet doit :
 
